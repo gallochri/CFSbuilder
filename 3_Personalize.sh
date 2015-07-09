@@ -47,6 +47,9 @@ apt-get update
 # Installazione sistema di base
 apt-get install -y locales sudo openssh-server ntp usbmount patch less rsync sudo raspi-config
 
+# Installazione server X
+apt-get install -y lightdm
+
 # Installazione mate
 apt-get install -y mate-core mate-desktop-environment
 
