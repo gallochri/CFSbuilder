@@ -9,6 +9,14 @@ mkdir -p ~/CFS2
 
 #Installazione chroot
 sudo qemu-debootstrap --no-check-gpg --arch armhf wheezy ~/CFS2/chroot http://archive.raspbian.org/raspbian
+#per SUSE:
+#sudo debootstrap --no-check-gpg --foreign --arch armhf wheezy ~/CFS2/chroot http://archive.raspbian.org/raspbian
+#sudo zypper in qemu-linux-user
+#sudo qemu-binfmt-conf.sh 
+#sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/
+#sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/ 
+#sudo DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true  LC_ALL=C LANGUAGE=C LANG=C chroot CFS2/chroot/ /debootstrap/debootstrap --second-stage
+
 
 #Montaggi FS
 sudo mount -t proc proc ~/CFS2/chroot/proc
