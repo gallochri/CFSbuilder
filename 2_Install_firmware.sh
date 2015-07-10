@@ -2,6 +2,8 @@
 
 cd ~/CFS2
 
+sudo rm -rf ~/CFS2/bootfs
+sudo rm -rf ~/CFS2/chroot/lib/modules
 sudo mkdir ~/CFS2/bootfs
 sudo mkdir ~/CFS2/chroot/lib/modules
 
