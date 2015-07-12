@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Dentro il chroot
-sudo LC_ALL=C chroot ~/CFS2/chroot
-
 # Aggiunta repository standard
 rm -r /etc/apt/sources.list
 echo "deb http://archive.raspbian.org/raspbian wheezy main" >> /etc/apt/sources.list
@@ -52,6 +49,13 @@ apt-get install -y lightdm
 
 # Installazione mate
 apt-get install -y mate-core mate-desktop-environment
+
+# Programmi CFS
+apt-get install -y chromium-browser
+apt-get -y install oracle-java8-jdk geogebra
+update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
+apt-get -y install iceweasel iceweasel-l10n-it
+apt-get -y install avahi-daemon
 
 # Aggiunta utente standard
 adduser pi

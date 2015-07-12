@@ -1,7 +1,12 @@
 #!/bin/bash
 
+OS_NAME=`lsb_release -i -s`
+case $OS_NAME in 
+  Debian | Ubuntu) sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-static;;
+  "openSUSE project") sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-binfmt; sudo rm ~/CFS2/chroot/usr/bin/qemu-arm;;
+esac
+
 #Smontaggio dispositivi
-sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-static
 sudo umount --force ~/CFS2/chroot/proc
 sudo umount --force ~/CFS2/chroot/sys
 sudo umount --force ~/CFS2/chroot/dev/pts
@@ -9,7 +14,7 @@ sudo umount --force ~/CFS2/chroot/dev
 
 #Reboot in caso di device busy
 
-# Creazione file per immagine
+echo "Creazione file per immagine"
 cd ~/CFS2
 dd if=/dev/zero of=CFS2.img bs=1MB count=5120
 
@@ -41,6 +46,8 @@ sudo mkfs.vfat /dev/mapper/loop0p1
 sudo mkfs.ext4 /dev/mapper/loop0p2
 
 # Copiatura rootfs e bootfs
+sudo rm -rf /mnt/bootfs
+sudo rm -rf /mnt/rootfs
 sudo mkdir /mnt/bootfs
 sudo mkdir /mnt/rootfs
 
@@ -83,7 +90,6 @@ sudo kpartx -d CFS2.img
 
 # Per installare l'immagine:
 # sudo dd if=CFS2.img of=/dex/sdX bs=4M 
-
 
 
 
