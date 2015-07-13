@@ -1,6 +1,7 @@
 #!/bin/bash
 
 OS_NAME=`lsb_release -i -s`
+CURRENT_DIR=`pwd`
 
 cd ~
 mkdir -p ~/CFS2
@@ -12,8 +13,10 @@ while true; do
 			[s]* ) echo -e "\nCancellazione chroot e creazione nuova debootstrap "; sudo rm -r ~/CFS2/chroot;;
 			[n]* ) case $OS_NAME in
 				Debian | Ubuntu)
+					echo -e;
 					sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
 				"openSUSE project")
+					echo -e;
 					sudo qemu-binfmt-conf.sh;
     				sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
     				sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;break;;
@@ -47,4 +50,27 @@ while true; do
 	esac
 done
 
-echo "Finito!"
+while true; do
+  echo -e "\n"
+  read -p "Al termine di questo script sarai all'interno del chroot di Raspbian.
+Puoi editare e poi lanciare lo script di personalizzazione con:
+sh /root/2_Personalize_script_inside_chroot.sh
+Premi [c]ontinua oppure [t]ermina." -n 1 -r -s
+  case $REPLY in
+	  [c]* )echo -e "";break;;
+	  [t]* )exit;;
+	  * )echo -e "\nPremere [c] per continuare oppure [t] per terminare.";;
+  esac
+done
+
+#Montaggi FS
+sudo mount -t proc proc ~/CFS2/chroot/proc
+sudo mount -t sysfs sysfs ~/CFS2/chroot/sys
+sudo mount -o bind /dev ~/CFS2/chroot/dev
+sudo mount -o bind /dev/pts ~/CFS2/chroot/dev/pts
+
+#Copia script all'interno della chroot
+sudo cp ${CURRENT_DIR}/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/
+
+# Dentro il chroot
+sudo LC_ALL=C chroot ~/CFS2/chroot

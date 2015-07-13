@@ -1,6 +1,9 @@
 #!/bin/bash
 
 OS_NAME=`lsb_release -i -s`
+
+sudo rm -r ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh
+
 case $OS_NAME in 
   Debian | Ubuntu) sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-static;;
   "openSUSE project") sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-binfmt; sudo rm ~/CFS2/chroot/usr/bin/qemu-arm;;
