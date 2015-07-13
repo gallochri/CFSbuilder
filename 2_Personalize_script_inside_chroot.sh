@@ -58,7 +58,7 @@ apt-get -y install iceweasel iceweasel-l10n-it
 apt-get -y install avahi-daemon
 
 # Aggiunta utente standard
-adduser pi
+adduser --disabled-password --gecos "" pi
 usermod -a -G sudo,staff,kmem,plugdev pi
 
 # Configurazione usbmount.conf
