@@ -13,6 +13,8 @@ esac
 sudo umount --force ~/CFS2/chroot/proc
 sudo umount --force ~/CFS2/chroot/sys
 sudo umount --force ~/CFS2/chroot/dev/pts
+#TODO aggiungere un if: se --force scazza usare --lazy
+sudo umount --lazy ~/CFS2/chroot/dev
 sudo umount --force ~/CFS2/chroot/dev
 
 #Reboot in caso di device busy

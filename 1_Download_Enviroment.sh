@@ -10,6 +10,7 @@ while true; do
 	if [ -d ~/CFS2/chroot ]; then
 		read -p "Esiste già una chroot, vuoi sovrascriverla [s/n]?" -n 1 -r -s
 		case $REPLY in
+			#TODO Verificare che non ci siano filesystem montati nella chroot altrimenti scappella
 			[s]* ) echo -e "\nCancellazione chroot e creazione nuova debootstrap "; sudo rm -r ~/CFS2/chroot;;
 			[n]* ) case $OS_NAME in
 				Debian | Ubuntu)
