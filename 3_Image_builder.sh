@@ -23,13 +23,14 @@ sudo umount --force ~/CFS2/chroot/dev
 
 #Reboot in caso di device busy
 
-echo "Creazione file per immagine"
+echo "#####Creazione file per immagine######"
 cd ~/CFS2
 dd if=/dev/zero of=CFS_${IMG_REV}.img bs=1MB count=5120
 
-# Montaggio immagine in loop device
+echo "#####Montaggio immagine in loop device ######"
 sudo losetup -f --show CFS_${IMG_REV}.img
 
+echo "#####Creazione partizioni loop device#####"
 sudo fdisk /dev/loop0 << EOF
 n
 p
@@ -50,11 +51,11 @@ sudo losetup -d /dev/loop0
 
 sudo kpartx -va CFS_${IMG_REV}.img | sed -E 's/.*(loop[0-9])p.*/1/g' | head -1
 
-# Formattazione
+echo "#####Formattazione#####"
 sudo mkfs.vfat /dev/mapper/loop0p1
 sudo mkfs.ext4 /dev/mapper/loop0p2
 
-# Copiatura rootfs e bootfs
+echo "#####Copiatura rootfs e bootfs#####"
 sudo rm -rf /mnt/bootfs
 sudo rm -rf /mnt/rootfs
 sudo mkdir /mnt/bootfs
@@ -63,12 +64,12 @@ sudo mkdir /mnt/rootfs
 sudo mount /dev/mapper/loop0p1 /mnt/bootfs
 sudo mount /dev/mapper/loop0p2 /mnt/rootfs
 
-sudo cp -R bootfs/* /mnt/bootfs
+sudo cp -R firmware/boot/* /mnt/bootfs
 sudo rsync -a chroot/ /mnt/rootfs
 sudo cp -a firmware/hardfp/opt/vc /mnt/rootfs/opt/
 sudo umount /mnt/rootfs
 
-# Copiatura config.txt
+echo "#####Copiatura config.txt#####"
 sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
 #sudo sh -c 'cat >/mnt/bootfs/config.txt<<EOF
 #kernel=kernel.img
@@ -80,7 +81,7 @@ sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
 #EOF
 #'
 
-# Copiatura cmdline.txt
+echo "#####Copiatura cmdline.txt######"
 sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt 
 #sudo sh -c 'cat >/mnt/bootfs/cmdline.txt<<EOF
 #dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
@@ -89,7 +90,7 @@ sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt
 
 sudo umount /mnt/bootfs
 
-# Rimozione mappature
+echo "######Rimozione mappature######"
 sudo kpartx -d CFS_${IMG_REV}.img
 
 

@@ -47,16 +47,16 @@ EOF
 # Aggiornamento archivi
 apt-get update
 
-# Installazione sistema di base
+echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp usbmount patch less rsync sudo raspi-config
 
-# Installazione server X
+echo "##############Installazione server X##############"
 apt-get install -y lightdm
 
-# Installazione mate
+echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
 
-# Programmi CFS
+echo "##################Programmi CFS###################"
 apt-get install -y chromium-browser
 apt-get -y install oracle-java8-jdk geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
@@ -67,8 +67,20 @@ apt-get -y install avahi-daemon
 adduser --disabled-password --gecos "" pi
 usermod -a -G sudo,staff,kmem,plugdev pi
 
+# Autologin per utente pi
+update-rc.d lightdm enable 2
+sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
+
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
+
+# Configurazione tastiera
+dpkg-reconfigure keyboard-configuration &&
+printf "Reloading keymap. This may take a short while\n" &&
+invoke-rc.d keyboard-setup start
+
+# Configurazione timezone
+dpkg-reconfigure tzdata
 
 # Pulizia e uscita dal chroot
 apt-get clean
