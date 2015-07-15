@@ -1,8 +1,12 @@
 #!/bin/bash
 
 OS_NAME=`lsb_release -i -s`
+IMG_REV=`date +%Y-%m-%d_%k%M`
+CURRENT_DIR=`pwd`
 
 sudo rm -r ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh
+sudo rm -r ~/CFS2/chroot/root/sources/
+sudo rm -r ~/CFS2/chroot/root/config/
 
 case $OS_NAME in 
   Debian | Ubuntu) sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-static;;
@@ -21,10 +25,10 @@ sudo umount --force ~/CFS2/chroot/dev
 
 echo "Creazione file per immagine"
 cd ~/CFS2
-dd if=/dev/zero of=CFS2.img bs=1MB count=5120
+dd if=/dev/zero of=CFS_${IMG_REV}.img bs=1MB count=5120
 
 # Montaggio immagine in loop device
-sudo losetup -f --show CFS2.img
+sudo losetup -f --show CFS_${IMG_REV}.img
 
 sudo fdisk /dev/loop0 << EOF
 n
@@ -44,7 +48,7 @@ EOF
 
 sudo losetup -d /dev/loop0
 
-sudo kpartx -va CFS2.img | sed -E 's/.*(loop[0-9])p.*/1/g' | head -1
+sudo kpartx -va CFS_${IMG_REV}.img | sed -E 's/.*(loop[0-9])p.*/1/g' | head -1
 
 # Formattazione
 sudo mkfs.vfat /dev/mapper/loop0p1
@@ -64,33 +68,29 @@ sudo rsync -a chroot/ /mnt/rootfs
 sudo cp -a firmware/hardfp/opt/vc /mnt/rootfs/opt/
 sudo umount /mnt/rootfs
 
-# TODO queste sono assimilabili a personalizzazione e si potrebbero
-# spostare nel file Personalize.sh
+# Copiatura config.txt
+sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
+#sudo sh -c 'cat >/mnt/bootfs/config.txt<<EOF
+#kernel=kernel.img
+#arm_freq=800
+#core_freq=250
+#sdram_freq=400
+#over_voltage=0
+#gpu_mem=16
+#EOF
+#'
 
-# Creazione config.txt
-sudo sh -c 'cat >/mnt/bootfs/config.txt<<EOF
-kernel=kernel.img
-arm_freq=800
-core_freq=250
-sdram_freq=400
-over_voltage=0
-gpu_mem=16
-EOF
-'
-
-# TODO queste sono assimilabili a personalizzazione e si potrebbero
-# spostare nel file Personalize.sh
-
-# Creazione cmdline.txt
-sudo sh -c 'cat >/mnt/bootfs/cmdline.txt<<EOF
-dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
-EOF
-'
+# Copiatura cmdline.txt
+sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt 
+#sudo sh -c 'cat >/mnt/bootfs/cmdline.txt<<EOF
+#dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
+#EOF
+#'
 
 sudo umount /mnt/bootfs
 
 # Rimozione mappature
-sudo kpartx -d CFS2.img
+sudo kpartx -d CFS_${IMG_REV}.img
 
 
 # Per installare l'immagine:

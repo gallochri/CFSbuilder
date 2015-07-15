@@ -6,23 +6,29 @@ echo "deb http://archive.raspbian.org/raspbian wheezy main" >> /etc/apt/sources.
 echo "deb http://archive.raspberrypi.org/debian/ wheezy main" >> /etc/apt/sources.list
 wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
 wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
-
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 
-# TODO Nome host temporaneo da sostituire con lo script che carica i nomi accazzo
-sh -c 'echo cfs >/etc/hostname'	
-sh -c 'echo 127.0.0.1    cfs >>/etc/hosts'
+#Script per hostname generator
+echo "Hostname generator installation..."
+install -m 755 /root/sources/name_generator /usr/local/bin/
+install -m 755 /root/sources/cfs-registration /etc/init.d/
+update-rc.d cfs-registration defaults
 
-# Configurazione eth0 con DHCP
-sh -c 'cat > /etc/network/interfaces << EOF
-auto lo
-iface lo inet loopback
- 
-auto eth0
-iface eth0 inet dhcp
-EOF
-'
+install -m 755 /root/sources/hostname.sh /etc/init.d/
+install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+update-rc.d hostname_changed.sh defaults 36 S .
+
+# Copiatura configurazione eth0 con DHCP e wpa supplicant
+cp -r /root/etc/network/interfaces /etc/network/interfaces
+#sh -c 'cat > /etc/network/interfaces << EOF
+#auto lo
+#iface lo inet loopback
+# 
+#auto eth0
+#iface eth0 inet dhcp
+#EOF
+#'
 
 # Configurazione fstab per SD card
 sh -c 'cat > /etc/fstab << EOF
@@ -66,4 +72,4 @@ sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/u
 
 # Pulizia e uscita dal chroot
 apt-get clean
-exit
+sh -c 'exit'
