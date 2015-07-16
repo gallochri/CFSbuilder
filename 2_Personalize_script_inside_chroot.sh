@@ -41,7 +41,7 @@ EOF
 sh -c 'cat >> /root/.bashrc << EOF
 LC_ALL=C
 LANGUAGE=C
-LANG=C
+LANG=it_IT.UTF-8
 EOF
 '
 # Aggiornamento archivi
@@ -73,6 +73,9 @@ sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
 
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
+
+# Configurazione Locale
+dpkg-reconfigure locales
 
 # Configurazione tastiera
 dpkg-reconfigure keyboard-configuration &&
