@@ -11,7 +11,7 @@ echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 
 #Script per hostname generator
 sh -c 'echo CFS >/etc/hostname'
-sh -c 'echo 127.0.0.1	CFS >>/etc/hosts
+sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'
 
 #echo "Hostname generator installation..."
 #install -m 755 /root/sources/name_generator /usr/local/bin/
