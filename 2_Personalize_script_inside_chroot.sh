@@ -11,7 +11,7 @@ echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 
 #Script per hostname generator
 sh -c 'echo CFS >/etc/hostname'
-sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'/etc/hosts'
+sh -c 'echo 127.0.0.1	CFS >>/etc/hosts
 
 #echo "Hostname generator installation..."
 #install -m 755 /root/sources/name_generator /usr/local/bin/
@@ -23,7 +23,7 @@ sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'/etc/hosts'
 #update-rc.d hostname_changed.sh defaults 36 S .
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
-cp -r /root/etc/network/interfaces /etc/network/interfaces
+cp -r /root/config/etc/network/interfaces /etc/network/interfaces
 #sh -c 'cat > /etc/network/interfaces << EOF
 #auto lo
 #iface lo inet loopback
