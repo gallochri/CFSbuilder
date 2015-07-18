@@ -9,10 +9,10 @@ wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key ad
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 
-
-
-
 #Script per hostname generator
+sh -c 'echo CFS >/etc/hostname'
+sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'/etc/hosts'
+
 #echo "Hostname generator installation..."
 #install -m 755 /root/sources/name_generator /usr/local/bin/
 #install -m 755 /root/sources/cfs-registration /etc/init.d/
@@ -62,15 +62,13 @@ apt-get install -y lightdm
 echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
 
-
-
 echo "##################Programmi CFS###################"
 
 apt-get install -y chromium-browser
 apt-get -y install oracle-java8-jdk geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install iceweasel iceweasel-l10n-it
-apt-get -y install avahi-daemon
+#apt-get -y install avahi-daemon
 
 # Aggiunta utente standard
 adduser --disabled-password --gecos "" pi
