@@ -95,9 +95,9 @@ sudo umount /mnt/bootfs
 echo "######Rimozione mappature######"
 sudo kpartx -d CFS_${IMG_REV}.img
 
-
-# Per installare l'immagine:
-# sudo dd if=CFS2.img of=/dex/sdX bs=4M 
+echo "Per installare l'immagine:"
+echo "sudo dd CFS_${IMG_REV}.img of=/dex/sdX bs=4M"
+exit 
 
 
 

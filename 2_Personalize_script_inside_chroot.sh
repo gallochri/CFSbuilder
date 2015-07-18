@@ -94,6 +94,7 @@ invoke-rc.d keyboard-setup start
 # Configurazione timezone
 dpkg-reconfigure tzdata
 
-# Pulizia e uscita dal chroot
+# Pulizia
 apt-get clean
-sh -c 'exit'
+
+echo "Ora esci dal chroot digitando exit"
