@@ -51,23 +51,25 @@ sudo losetup -d /dev/loop0
 
 sudo kpartx -va CFS_${IMG_REV}.img | sed -E 's/.*(loop[0-9])p.*/1/g' | head -1
 
+sleep 2
+
 echo "#####Formattazione#####"
 sudo mkfs.vfat /dev/mapper/loop0p1
 sudo mkfs.ext4 /dev/mapper/loop0p2
 
-echo "#####Copiatura rootfs e bootfs#####"
-sudo rm -rf /mnt/bootfs
+echo "#####Copiatura rootfs#####"
 sudo rm -rf /mnt/rootfs
-sudo mkdir /mnt/bootfs
 sudo mkdir /mnt/rootfs
-
-sudo mount /dev/mapper/loop0p1 /mnt/bootfs
 sudo mount /dev/mapper/loop0p2 /mnt/rootfs
-
-sudo cp -R firmware/boot/* /mnt/bootfs
 sudo rsync -a chroot/ /mnt/rootfs
 sudo cp -a firmware/hardfp/opt/vc /mnt/rootfs/opt/
 sudo umount /mnt/rootfs
+
+echo "#####Copiatura bootfs#####"
+sudo rm -rf /mnt/bootfs
+sudo mkdir /mnt/bootfs
+sudo mount /dev/mapper/loop0p1 /mnt/bootfs
+sudo cp -R firmware/boot/* /mnt/bootfs
 
 echo "#####Copiatura config.txt#####"
 sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
