@@ -9,15 +9,18 @@ wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key ad
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 
-#Script per hostname generator
-echo "Hostname generator installation..."
-install -m 755 /root/sources/name_generator /usr/local/bin/
-install -m 755 /root/sources/cfs-registration /etc/init.d/
-update-rc.d cfs-registration defaults
 
-install -m 755 /root/sources/hostname.sh /etc/init.d/
-install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-update-rc.d hostname_changed.sh defaults 36 S .
+
+
+#Script per hostname generator
+#echo "Hostname generator installation..."
+#install -m 755 /root/sources/name_generator /usr/local/bin/
+#install -m 755 /root/sources/cfs-registration /etc/init.d/
+#update-rc.d cfs-registration defaults
+
+#install -m 755 /root/sources/hostname.sh /etc/init.d/
+#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+#update-rc.d hostname_changed.sh defaults 36 S .
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/etc/network/interfaces /etc/network/interfaces
@@ -50,13 +53,19 @@ apt-get update
 echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp usbmount patch less rsync sudo raspi-config
 
+acho "##########Utily############"
+apt-get install -y wpasupplicant vim
+
 echo "##############Installazione server X##############"
 apt-get install -y lightdm
 
 echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
 
+
+
 echo "##################Programmi CFS###################"
+
 apt-get install -y chromium-browser
 apt-get -y install oracle-java8-jdk geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
