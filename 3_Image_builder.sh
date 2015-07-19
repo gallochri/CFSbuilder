@@ -96,7 +96,7 @@ echo "######Rimozione mappature######"
 sudo kpartx -d CFS_${IMG_REV}.img
 
 echo "Per installare l'immagine:"
-echo "sudo dd if=$CURRENT_DIR/CFS_${IMG_REV}.img of=/dev/sdX bs=4M"
+echo "sudo dd if=~/CFS2/CFS_${IMG_REV}.img of=/dev/sdX bs=4M"
 exit 
 
 

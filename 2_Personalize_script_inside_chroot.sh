@@ -53,6 +53,20 @@ apt-get update
 echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-config
 #apt-get install -y usbmount
+
+apt-get install -y bash-completion blt build-essential
+apt-get install -y cgroup-bin cifs-utils curl
+apt-get install -y debconf-utils debian-reference-common debian-reference-en dhcpcd5 dillo dphys-swapfile
+apt-get install -y ed esound-common
+#apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
+apt-get install -y fake-hwclock fbset fonts-freefont-ttf fonts-roboto
+apt-get install -y galculator gdb gdbserver gettext-base
+apt-get install -y gir1.2-glib-2.0 git git-core git-man
+apt-get install -y ifplugd ifupdown
+apt-get install -y scratch
+apt-get install -y udev
+apt-get install -y xpdf xserver-xorg-video-fbturbo zenity
+
 echo "##########Utily############"
 apt-get install -y wpasupplicant vim
 
@@ -68,7 +82,7 @@ apt-get install -y chromium-browser
 apt-get -y install oracle-java8-jdk geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install iceweasel iceweasel-l10n-it
-#apt-get -y install avahi-daemon
+apt-get -y install avahi-daemon
 
 # Aggiunta utente standard
 adduser --disabled-password --gecos "" pi
