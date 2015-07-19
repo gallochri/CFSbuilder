@@ -71,6 +71,7 @@ sudo mount -o bind /dev ~/CFS2/chroot/dev
 sudo mount -o bind /dev/pts ~/CFS2/chroot/dev/pts
 
 #Copia script e sorgenti all'interno della chroot
+sudo rm -r ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/config ~/CFS2/chroot/root/sources
 sudo cp ${CURRENT_DIR}/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/sources/	~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/config/	~/CFS2/chroot/root/
