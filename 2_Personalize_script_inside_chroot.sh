@@ -51,8 +51,8 @@ EOF
 apt-get update
 
 echo "##########Installazione sistema di base##########"
-apt-get install -y locales sudo openssh-server ntp usbmount patch less rsync sudo raspi-config
-
+apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-config
+#apt-get install -y usbmount
 echo "##########Utily############"
 apt-get install -y wpasupplicant vim
 
@@ -72,14 +72,14 @@ apt-get -y install iceweasel iceweasel-l10n-it
 
 # Aggiunta utente standard
 adduser --disabled-password --gecos "" pi
-usermod -a -G sudo,staff,kmem,plugdev pi
+usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,input,spi,i2c,gpio pi
 
 # Autologin per utente pi
 update-rc.d lightdm enable 2
 sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
 
 # Configurazione usbmount.conf
-sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
+#sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
 
 # Configurazione Locale
 dpkg-reconfigure locales
