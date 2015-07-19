@@ -53,7 +53,7 @@ apt-get update
 echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp usbmount patch less rsync sudo raspi-config
 
-acho "##########Utily############"
+echo "##########Utily############"
 apt-get install -y wpasupplicant vim
 
 echo "##############Installazione server X##############"
