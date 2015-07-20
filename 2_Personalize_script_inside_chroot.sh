@@ -54,6 +54,11 @@ echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-config
 #apt-get install -y usbmount
 
+# Aggiunta utente standard
+adduser --disabled-password --gecos "" pi
+usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,input,spi,i2c,gpio pi
+
+
 apt-get install -y bash-completion blt build-essential
 apt-get install -y cgroup-bin cifs-utils curl
 apt-get install -y debconf-utils debian-reference-common debian-reference-en dhcpcd5 dillo dphys-swapfile
@@ -98,15 +103,11 @@ apt-get install -y mate-core mate-desktop-environment
 
 echo "##################Programmi CFS###################"
 
-apt-get install -y chromium-browser
-apt-get -y install oracle-java8-jdk geogebra
+apt-get -y install chromium-browser
+apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install iceweasel iceweasel-l10n-it
 apt-get -y install avahi-daemon
-
-# Aggiunta utente standard
-adduser --disabled-password --gecos "" pi
-usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,input,spi,i2c,gpio pi
 
 # Autologin per utente pi
 update-rc.d lightdm enable 2
