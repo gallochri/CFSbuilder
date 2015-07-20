@@ -61,11 +61,31 @@ apt-get install -y ed esound-common
 #apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
 apt-get install -y fake-hwclock fbset fonts-freefont-ttf fonts-roboto
 apt-get install -y galculator gdb gdbserver gettext-base
-apt-get install -y gir1.2-glib-2.0 git git-core git-man
-apt-get install -y ifplugd ifupdown
-apt-get install -y scratch
-apt-get install -y udev
-apt-get install -y xpdf xserver-xorg-video-fbturbo zenity
+apt-get install -y gir1.2-glib-2.0 git git-core git-man gksu 
+apt-get install -y gnome-icon-theme-symbolic gpicview gvfs-backends gvfs-fuse
+apt-get install -y hardlink
+apt-get install -y idle idle-python2.7 idle-python3.2 idle3 python-tk ifplugd ifupdown
+apt-get install -y python3 python3-minimal python3-tk python3.2 python3.2-minimal
+apt-get install -y jackd jackd2 
+apt-get install -y leafpad
+apt-get install -y make makedev man-db manpages manpages-dev mawk menu menu-xdg mime-support minecraft-pi module-init-tools mount mountall multiarch-support
+apt-get install -y nano ncdu ncurses-base ncurses-bin ncurses-term net-tools netbase netcat-openbsd netcat-traditional netsurf-common netsurf-gtk nfs-common ntp nuscratch                                         
+apt-get install -y obconf omxplayer openbox openresolv openssh-blacklist openssh-blacklist-extra openssh-client openssh-server openssl oracle-java8-jdk
+apt-get install -y parted passwd pciutils perl perl-base perl-modules pkg-config plymouth policykit-1 poppler-data 
+apt-get install -y poppler-utils procps psmisc pypy-setuptools pypy-upstream pypy-upstream-dev pypy-upstream-doc 
+apt-get install -y python python-dbus python-dbus-dev python-gi python-minecraftpi python-minimal python-numpy 
+apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio 
+apt-get install -y python-serial python-support python-tk python2.7 python2.7-minimal python3 python3-minecraftpi python3-minimal python3-numpy 
+apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame python3-rpi.gpio python3-serial python3-tk python3.2 python3.2-minimal  
+apt-get install -y qdbus qjackctl
+apt-get install -y raspberrypi-artwork  rpcbind rpi-update
+apt-get install -y scratch smartsim sonic-pi ssh strace supercollider supercollider-common supercollider-server
+apt-get install -y timidity timidity-daemon tsconf
+apt-get install -y udev usbutils
+apt-get install -y v4l-utils
+apt-get install -y wireless-tools wpagui
+#apt-get install -y weston
+apt-get install -y xpdf xserver-xorg-video-fbturbo zenity x2x xarchiver xfconf xinit xserver-xorg-video-fbdev
 
 echo "##########Utily############"
 apt-get install -y wpasupplicant vim

@@ -15,7 +15,9 @@ esac
 
 #Smontaggio dispositivi
 sudo umount --force ~/CFS2/chroot/proc
+#TODO aggiungere un if: se --force scazza usare --lazy
 sudo umount --force ~/CFS2/chroot/sys
+sudo umount --lazy ~/CFS2/chroot/sys
 sudo umount --force ~/CFS2/chroot/dev/pts
 #TODO aggiungere un if: se --force scazza usare --lazy
 sudo umount --lazy ~/CFS2/chroot/dev
