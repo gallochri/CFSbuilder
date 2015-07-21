@@ -1,6 +1,7 @@
 #!/bin/bash
 
 OS_NAME=`lsb_release -i -s`
+#TODO nel caso l'ora sia a singola cifra (dal 1 al 9) l'opzione %k mette uno spazio che crea problemi
 IMG_REV=`date +%Y-%m-%d_%k%M`
 CURRENT_DIR=`pwd`
 
