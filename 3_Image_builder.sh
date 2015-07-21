@@ -27,7 +27,7 @@ sudo umount --force ~/CFS2/chroot/dev
 
 echo "#####Creazione file per immagine######"
 cd ~/CFS2
-dd if=/dev/zero of=CFS_${IMG_REV}.img bs=1MB count=5120
+dd if=/dev/zero of=CFS_${IMG_REV}.img bs=1MB count=6144
 
 echo "#####Montaggio immagine in loop device ######"
 sudo losetup -f --show CFS_${IMG_REV}.img
