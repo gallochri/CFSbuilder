@@ -66,7 +66,6 @@ apt-get install -y galculator gdb gdbserver gettext-base gir1.2-glib-2.0 git git
 apt-get install -y hardlink
 apt-get install -y idle idle-python2.7 idle-python3.2 idle3 python-tk ifplugd i2c-tools
 apt-get install -y jackd jackd2 
-apt-get install -y leafpad
 apt-get install -y manpages-dev mawk menu menu-xdg
 apt-get install -y ncdu netsurf-common netsurf-gtk nfs-common nuscratch                                         
 apt-get install -y obconf omxplayer openbox openresolv openssl oracle-java8-jdk
@@ -84,11 +83,11 @@ apt-get install -y xpdf xserver-xorg-video-fbturbo x2x xarchiver xfconf xinit xs
 #apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
 #apt-get install -y weston
 
-echo "###########Installazione Desktop Manager###########"
-apt-get install -y lightdm
-
 echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
+
+echo "###########Installazione Desktop Manager###########"
+apt-get install -y lightdm
 
 echo "##################Programmi CFS###################"
 apt-get -y install chromium-browser
@@ -104,6 +103,9 @@ usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,spi,
 # Autologin per utente pi
 update-rc.d lightdm enable 2
 sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
+sed /etc/lightdm/lightdm.conf -i -e "s/^# user-session =.*/user-session=mate-session/"
+sed /etc/lightdm/lightdm.conf -i -e "s/^#user-session=.*/user-session=mate-session/"
+cp -r /root/config/home/pi/xinitrc	/home/pi/.xinitrc
 
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
@@ -119,6 +121,9 @@ invoke-rc.d keyboard-setup start
 
 # Configurazione timezone
 dpkg-reconfigure tzdata
+
+# Aggiornamento kernel
+rpi-update
 
 # Pulizia
 apt-get clean
