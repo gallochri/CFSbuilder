@@ -119,12 +119,16 @@ sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/u
 dpkg-reconfigure locales
 
 # Configurazione tastiera
+# TODO Probabile non sia necessaria in quando la configurazione avviene qaundo si installa il pacchetto
 dpkg-reconfigure keyboard-configuration &&
 printf "Reloading keymap. This may take a short while\n" &&
 invoke-rc.d keyboard-setup start
 
 # Configurazione timezone
 dpkg-reconfigure tzdata
+
+# Aggiornamento
+apt-get -y upgrade 
 
 # Pulizia
 apt-get clean
