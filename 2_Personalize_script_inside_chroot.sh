@@ -8,6 +8,8 @@ wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
 wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
+# Aggiunta repository Collabora
+echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
 
 #Script per hostname generator
 sh -c 'echo CFS >/etc/hostname'
@@ -55,6 +57,7 @@ apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-c
 
 echo "##########Creazione utente pi##########"
 adduser --gecos "" pi
+#--disabled-password 
 
 echo "##########Installazione pacchetti base##########"
 apt-get install -y bash-completion blt build-essential
@@ -83,8 +86,8 @@ apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 echo "##########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
 
-#disponibile per Jessie
-#apt-get install -y weston
+echo "Wayland"
+apt-get install -y --allow-unauthenticated weston
 
 echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
@@ -104,15 +107,22 @@ groupadd -g 999 input
 usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,spi,gpio,i2c,input pi
 
 # Autologin per utente pi
+update-alternatives --set x-session-manager /usr/bin/mate-session
 update-rc.d lightdm enable 2
 sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
-sed /etc/lightdm/lightdm.conf -i -e "s/^# user-session =.*/user-session=mate-session/"
-sed /etc/lightdm/lightdm.conf -i -e "s/^#user-session=.*/user-session=mate-session/"
-cp -r /root/config/home/pi/xinitrc	/home/pi/.xinitrc
-update-alternatives --set x-session-manager /usr/bin/mate-session
+#sed /etc/lightdm/lightdm.conf -i -e "s/^# user-session =.*/user-session=mate-session/"
+#sed /etc/lightdm/lightdm.conf -i -e "s/^#user-session=.*/user-session=mate-session/"
+#cp -r /root/config/home/pi/xinitrc	/home/pi/.xinitrc
+
 
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
+
+# Inittab per serial console
+cp -r /root/config/etc/inittab /etc/inittab
+
+# wpa supplicant
+cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 
 # Configurazione Locale
 # installare anche en_GB.UTF-8
