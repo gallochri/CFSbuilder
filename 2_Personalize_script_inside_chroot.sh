@@ -10,7 +10,8 @@ wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key ad
 echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 # Aggiunta repository Collabora
 echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
-
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
+	
 #Script per hostname generator
 sh -c 'echo CFS >/etc/hostname'
 sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'
@@ -87,7 +88,7 @@ echo "##########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
 
 echo "Wayland"
-apt-get install -y --allow-unauthenticated weston
+apt-get install -y weston
 
 echo "################Installazione mate################"
 apt-get install -y mate-core mate-desktop-environment
