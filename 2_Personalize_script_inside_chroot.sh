@@ -13,17 +13,16 @@ echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
 	
 #Script per hostname generator
-sh -c 'echo CFS >/etc/hostname'
-sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'
+#sh -c 'echo CFS >/etc/hostname'
+#sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'
 
-#echo "Hostname generator installation..."
-#install -m 755 /root/sources/name_generator /usr/local/bin/
-#install -m 755 /root/sources/cfs-registration /etc/init.d/
-#update-rc.d cfs-registration defaults
-
-#install -m 755 /root/sources/hostname.sh /etc/init.d/
-#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-#update-rc.d hostname_changed.sh defaults 36 S .
+echo "Installazione generatore di Host name"
+install -m 755 /root/sources/name_generator /usr/local/bin/
+install -m 755 /root/sources/cfs-registration /etc/init.d/
+update-rc.d cfs-registration defaults
+install -m 755 /root/sources/hostname.sh /etc/init.d/
+install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+update-rc.d hostname_changed.sh defaults 36 S .
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
@@ -43,13 +42,16 @@ proc /proc proc defaults 0 0
 EOF
 '
 
+
 # TODO verificare la correttezza su raspbian CFS configurata col vecchio script
-sh -c 'cat >> /root/.bashrc << EOF
-LC_ALL=C
-LANGUAGE=C
-LANG=it_IT.UTF-8
-EOF
-'
+cp -r /root/config/root/.bashrc /root/
+cp -r /root/config/root/.profile /root/
+#sh -c 'cat >> /root/.bashrc << EOF
+#LC_ALL=C
+#LANGUAGE=C
+#LANG=it_IT.UTF-8
+#EOF
+#'
 # Aggiornamento archivi
 apt-get update
 

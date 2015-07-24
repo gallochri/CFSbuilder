@@ -16,15 +16,23 @@ esac
 
 #Smontaggio dispositivi
 sudo umount --force ~/CFS2/chroot/proc
-#TODO aggiungere un if: se --force scazza usare --lazy
+	
 sudo umount --force ~/CFS2/chroot/sys
-sudo umount --lazy ~/CFS2/chroot/sys
-sudo umount --force ~/CFS2/chroot/dev/pts
-#TODO aggiungere un if: se --force scazza usare --lazy
-sudo umount --lazy ~/CFS2/chroot/dev
-sudo umount --force ~/CFS2/chroot/dev
+if  mountpoint -q ~/CFS2/chroot/sys; then
+	echo "Ho forzato lo smontaggio di /sys"
+	sudo umount --lazy ~/CFS2/chroot/sys
+else
+	echo "sys già smontato"
+fi
 
-#Reboot in caso di device busy
+sudo umount --force ~/CFS2/chroot/dev/pts
+
+if  mountpoint -q ~/CFS2/chroot/dev; then
+	echo "Ho forzato lo smontaggio di /dev"
+	sudo umount --lazy ~/CFS2/chroot/dev
+else
+	echo "dev già smontato"
+fi
 
 echo "#####Creazione file per immagine######"
 cd ~/CFS2

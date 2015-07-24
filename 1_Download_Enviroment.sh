@@ -41,16 +41,12 @@ while true; do
 done
 
 cd ~/CFS2
-
-while true; do
-	read -p "Clonare il firmware da zero o aggiornarlo [c/a]?" -n 1 -r -s
-	case $REPLY in
-		[c]* ) echo -e;sudo rm -rf firmware; sudo git clone https://github.com/raspberrypi/firmware.git; break;;
-		[a]* ) echo -e "\nOK!";cd firmware; sudo git fetch origin; sudo git reset --hard origin/master; break;;
-		* ) echo -e "\nPremere [c] clona oppure [a] aggiorna.";;
-	esac
-done
-
+if [ -d ~/CFS2/firmware ]; then
+	echo -e "\nCartella Firmware presente, Aggiono!";cd firmware; sudo git fetch origin; sudo git reset --hard origin/master
+else
+	echo -e;sudo rm -rf firmware; sudo git clone https://github.com/raspberrypi/firmware.git;
+fi
+		
 while true; do
   echo -e "\n"
   read -p "Al termine di questo script sarai all'interno del chroot di Raspbian.
@@ -71,7 +67,7 @@ sudo mount -o bind /dev ~/CFS2/chroot/dev
 sudo mount -o bind /dev/pts ~/CFS2/chroot/dev/pts
 
 #Copia script e sorgenti all'interno della chroot
-sudo rm -r ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/config ~/CFS2/chroot/root/sources
+sudo rm -rf ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/config ~/CFS2/chroot/root/sources
 sudo cp ${CURRENT_DIR}/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/sources/	~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/config/	~/CFS2/chroot/root/
