@@ -13,9 +13,6 @@ echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
 	
 #Script per hostname generator
-#sh -c 'echo CFS >/etc/hostname'
-#sh -c 'echo 127.0.0.1	CFS >>/etc/hosts'
-
 echo "Installazione generatore di Host name"
 install -m 755 /root/sources/name_generator /usr/local/bin/
 install -m 755 /root/sources/cfs-registration /etc/init.d/
@@ -26,14 +23,6 @@ update-rc.d hostname_changed.sh defaults 36 S .
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
-#sh -c 'cat > /etc/network/interfaces << EOF
-#auto lo
-#iface lo inet loopback
-# 
-#auto eth0
-#iface eth0 inet dhcp
-#EOF
-#'
 
 # Configurazione fstab per SD card
 sh -c 'cat > /etc/fstab << EOF
@@ -41,28 +30,24 @@ proc /proc proc defaults 0 0
 /dev/mmcblk0p1 /boot vfat defaults 0 0
 EOF
 '
-
-
-# TODO verificare la correttezza su raspbian CFS configurata col vecchio script
+# Profilo Bash per root
 cp -r /root/config/root/.bashrc /root/
 cp -r /root/config/root/.profile /root/
-#sh -c 'cat >> /root/.bashrc << EOF
-#LC_ALL=C
-#LANGUAGE=C
-#LANG=it_IT.UTF-8
-#EOF
-#'
+
 # Aggiornamento archivi
 apt-get update
 
 echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-config usbmount
 
-echo "##########Creazione utente pi##########"
+echo "###############Creazione utente pi###############"
 adduser --gecos "" pi
+# TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
+# L'utente così creato non fa il login in X, probabile ci sia da configurare X 
+# in modo da permettere il login senza password.
 #--disabled-password 
 
-echo "##########Installazione pacchetti base##########"
+echo "##########Installazione pacchetti base###########"
 apt-get install -y bash-completion blt build-essential
 apt-get install -y cgroup-bin curl
 apt-get install -y debconf-utils debian-reference-common debian-reference-it dhcpcd5 dphys-swapfile
@@ -86,19 +71,19 @@ apt-get install -y v4l-utils vim
 apt-get install -y wireless-tools wpagui wpasupplicant
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 
-echo "##########Installazione pacchetti non-free##########"
+echo "#########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
 
-echo "Wayland"
+echo "####################Wayland########################"
 apt-get install -y weston
 
-echo "################Installazione mate################"
+echo "################Installazione mate#################"
 apt-get install -y mate-core mate-desktop-environment
 
 echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm
 
-echo "##################Programmi CFS###################"
+echo "###################Programmi CFS###################"
 apt-get -y install chromium-browser
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
@@ -113,10 +98,6 @@ usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,spi,
 update-alternatives --set x-session-manager /usr/bin/mate-session
 update-rc.d lightdm enable 2
 sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
-#sed /etc/lightdm/lightdm.conf -i -e "s/^# user-session =.*/user-session=mate-session/"
-#sed /etc/lightdm/lightdm.conf -i -e "s/^#user-session=.*/user-session=mate-session/"
-#cp -r /root/config/home/pi/xinitrc	/home/pi/.xinitrc
-
 
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
