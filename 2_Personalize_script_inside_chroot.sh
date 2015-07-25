@@ -72,7 +72,7 @@ echo "####################Wayland########################"
 apt-get install -y weston
 
 echo "################Installazione mate#################"
-apt-get install -y mate-core mate-desktop-environment
+apt-get install -y mate-core mate-desktop-environment mate-bluetooth
 
 echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm
