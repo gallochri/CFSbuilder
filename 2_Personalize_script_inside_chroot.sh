@@ -78,6 +78,12 @@ echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm
 
 echo "###################Programmi CFS###################"
+apt-get -y install tightvncserver
+su -l pi -c "mkdir -p ~/.config/autostart/"
+install -m 755 -o pi /root/config/home/pi/autostart/autotightvnc.desktop \
+	/home/pi/.config/autostart
+install -m 755 /root/config/home/pi/autostart/tightvnc.desktop \
+        /usr/share/applications
 apt-get -y install chromium-browser
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
