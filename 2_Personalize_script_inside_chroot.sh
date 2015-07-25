@@ -12,11 +12,15 @@ echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
 echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
 	
-#Script per hostname generator
-echo "Installazione generatore di Host name"
-install -m 755 /root/sources/name_generator /usr/local/bin/
+#TODO testare se funziona ancora il servizio
+echo "#############Registrazione CFS####################"
 install -m 755 /root/sources/cfs-registration /etc/init.d/
 update-rc.d cfs-registration defaults
+
+echo "#############Generatore di Hostname###############"
+sh -c 'echo raspberrypi >/etc/hostname'
+sh -c 'echo 127.0.0.1	raspberrypi >>/etc/hosts'
+install -m 755 /root/sources/name_generator /usr/local/bin/
 install -m 755 /root/sources/hostname.sh /etc/init.d/
 install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
 update-rc.d hostname_changed.sh defaults 36 S .
