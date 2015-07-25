@@ -48,28 +48,18 @@ adduser --gecos "" pi
 #--disabled-password 
 
 echo "##########Installazione pacchetti base###########"
-apt-get install -y bash-completion blt build-essential
-apt-get install -y cgroup-bin curl
-apt-get install -y debconf-utils debian-reference-common debian-reference-it dhcpcd5 dphys-swapfile
-apt-get install -y ed esound-common
-apt-get install -y fake-hwclock fbset fonts-freefont-ttf fonts-roboto
-apt-get install -y gdb gdbserver gettext-base gir1.2-glib-2.0 git git-core git-man gksu gnome-icon-theme-symbolic gvfs-backends gvfs-fuse
-apt-get install -y hardlink
-apt-get install -y idle idle-python2.7 idle-python3.2 idle3 python-tk ifplugd i2c-tools
-apt-get install -y jackd jackd2 
-apt-get install -y manpages-dev mawk menu menu-xdg
-apt-get install -y ncdu nfs-common nuscratch                                         
-apt-get install -y omxplayer openresolv openssl oracle-java8-jdk
+apt-get install -y bash-completion blt build-essential cgroup-bin curl
+apt-get install -y debconf-utils debian-reference-common debian-reference-it
+apt-get install -y dhcpcd5 dphys-swapfile ed esound-common fake-hwclock fbset fonts-freefont-ttf fonts-roboto
+apt-get install -y gdb gdbserver gettext-base gir1.2-glib-2.0 git git-core git-man gksu gnome-icon-theme-symbolic 
+apt-get install -y gvfs-backends gvfs-fuse hardlink idle idle-python2.7 idle-python3.2 idle3 python-tk ifplugd i2c-tools
+apt-get install -y jackd jackd2 manpages-dev mawk menu menu-xdg ncdu nfs-common nuscratch omxplayer openresolv openssl oracle-java8-jdk
 apt-get install -y pkg-config poppler-data poppler-utils pypy-setuptools pypy-upstream pypy-upstream-dev pypy-upstream-doc python-numpy 
 apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio python-serial python3-numpy 
-apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame python3-rpi.gpio python3-serial 
-apt-get install -y raspberrypi-artwork rpi-update
-apt-get install -y smartsim sonic-pi ssh strace supercollider supercollider-common supercollider-server
-apt-get install -y timidity timidity-daemon
-apt-get install -y usbutils
-apt-get install -y v4l-utils vim
-apt-get install -y wireless-tools wpagui wpasupplicant
-apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
+apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame
+apt-get install -y python3-rpi.gpio python3-serial raspberrypi-artwork rpi-update smartsim sonic-pi ssh strace
+apt-get install -y supercollider supercollider-common supercollider-server timidity timidity-daemon usbutils v4l-utils vim
+apt-get install -y wireless-tools wpagui wpasupplicant xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 
 echo "#########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
