@@ -35,14 +35,14 @@ proc /proc proc defaults 0 0
 EOF
 '
 # Profilo Bash per root
-cp -r /root/config/root/.bashrc /root/
-cp -r /root/config/root/.profile /root/
+cp -r /root/config/root/bashrc /root/
+cp -r /root/config/root/profile /root/
 
 # Aggiornamento archivi
 apt-get update
 
 echo "##########Installazione sistema di base##########"
-apt-get install -y locales sudo openssh-server ntp patch less rsync sudo raspi-config usbmount
+apt-get install -y locales sudo openssh-server ntp patch less rsync raspi-config usbmount
 
 echo "###############Creazione utente pi###############"
 adduser --gecos "" pi
