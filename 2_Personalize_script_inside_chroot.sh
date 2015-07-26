@@ -125,6 +125,7 @@ dpkg-reconfigure tzdata
 
 echo "##############Install scratch GPIO6################"
 cd /home/pi
+mkdir -p Desktop
 wget https://raw.githubusercontent.com/cymplecy/scratch_gpio/V6/install_scratchgpio6.sh
 bash install_scratchgpio6.sh
 rm -rf install_scratchgpio6.sh
@@ -145,11 +146,12 @@ apt-get -y install python-pip
 pip install pibrella
 
 echo "###################Install WiringPI#################"
-rm -rf wiringPI
+rm -rf wiringPi
 git clone git://git.drogon.net/wiringPi
 cd wiringPi
 ./build
 cd ..
+rm -rf wiringPi
 
 # Pulizia
 apt-get clean
