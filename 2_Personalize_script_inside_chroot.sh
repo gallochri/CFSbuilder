@@ -88,7 +88,9 @@ apt-get -y install chromium-browser
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install iceweasel iceweasel-l10n-it
+apt-get -y install lirc liblircclient-dev
 apt-get -y install -y avahi-daemon cifs-utils
+
 
 # Aggiunta dell'utente Pi ai gruppi
 groupadd -g 999 input
@@ -121,10 +123,38 @@ invoke-rc.d keyboard-setup start
 # Configurazione timezone
 dpkg-reconfigure tzdata
 
+echo "##############Install scratch GPIO6################"
+cd /home/pi
+wget https://raw.githubusercontent.com/cymplecy/scratch_gpio/V6/install_scratchgpio6.sh
+bash install_scratchgpio6.sh
+rm -rf install_scratchgpio6.sh
+cd Desktop
+sed -i "s/Application;Education;Development;/Development;/g" scratchgpio6*
+mv scratchgpio6* /usr/share/applications/
+cd /home/pi
+
 # Aggiornamento
 apt-get -y upgrade 
 
+echo "##############Install Pibrella python3 module#######"
+apt-get -y install python3-pip
+pip-3.2 install pibrella
+
+echo "##############Install Pibrella python module########"
+apt-get -y install python-pip
+pip install pibrella
+
+echo "###################Install WiringPI#################"
+rm -rf wiringPI
+git clone git://git.drogon.net/wiringPi
+cd wiringPi
+./build
+cd ..
+
 # Pulizia
 apt-get clean
+
+echo "###################Clean desktop###################"
+rm -rf /home/pi/Desktop/*
 
 echo "Ora lancia rpi-update e poi esci dal chroot digitando exit"
