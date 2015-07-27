@@ -71,7 +71,7 @@ sudo rm -rf ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh ~/CFS2/chro
 sudo cp ${CURRENT_DIR}/2_Personalize_script_inside_chroot.sh ~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/sources/	~/CFS2/chroot/root/
 sudo cp -r ${CURRENT_DIR}/config/	~/CFS2/chroot/root/
-	
+sudo cp -r ${CURRENT_DIR}/artwork/	~/CFS2/chroot/root/
 			
 # Dentro il chroot
 sudo LC_ALL=C chroot ~/CFS2/chroot

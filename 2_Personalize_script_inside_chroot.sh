@@ -134,6 +134,7 @@ sed -i "s/Application;Education;Development;/Development;/g" scratchgpio6*
 mv scratchgpio6* /usr/share/applications/
 cd /home/pi
 
+
 # Aggiornamento
 apt-get -y upgrade 
 
@@ -153,10 +154,15 @@ cd wiringPi
 cd ..
 rm -rf wiringPi
 
-# Pulizia
-apt-get clean
-
 echo "###################Clean desktop###################"
 rm -rf /home/pi/Desktop/*
+apt-get clean
+
+echo "###################ArtWork#########################"
+mkdir /home/pi/.cfs-artwork/
+mv /root/artwork/ /home/pi/.cfs-artwork/
+chown -R pi:pi /home/pi/
+su -l pi -c "dbus-launch --exit-with-session gsettings set org.mate.background picture-filename '/home/pi/.cfs-artwork/cfs-wallpaper.png'"
+
 
 echo "Ora lancia rpi-update e poi esci dal chroot digitando exit"
