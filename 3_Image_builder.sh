@@ -84,22 +84,9 @@ sudo cp -R firmware/boot/* /mnt/bootfs
 
 echo "#####Copiatura config.txt#####"
 sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
-#sudo sh -c 'cat >/mnt/bootfs/config.txt<<EOF
-#kernel=kernel.img
-#arm_freq=800
-#core_freq=250
-#sdram_freq=400
-#over_voltage=0
-#gpu_mem=16
-#EOF
-#'
 
 echo "#####Copiatura cmdline.txt######"
 sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt 
-#sudo sh -c 'cat >/mnt/bootfs/cmdline.txt<<EOF
-#dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
-#EOF
-#'
 
 sudo umount /mnt/bootfs
 

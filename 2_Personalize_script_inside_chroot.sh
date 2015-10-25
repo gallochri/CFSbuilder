@@ -1,16 +1,23 @@
 #!/bin/bash
 
+
+
+
+
 # Aggiunta repository standard
-rm -r /etc/apt/sources.list
-echo "deb http://archive.raspbian.org/raspbian wheezy main non-free" >> /etc/apt/sources.list
-echo "deb http://archive.raspberrypi.org/debian/ wheezy main" >> /etc/apt/sources.list
+cp -rf /root/config/etc/apt /etc/
+#rm -r /etc/apt/sources.list
+#echo "deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
+# Aggiunta repository Mate
+echo "deb http://archive.raspbian.org/mate jessie main" >> /etc/apt/sources.list
+# Aggiunta chiavi repository
 wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
 wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
-# Aggiunta repository Mate
-echo "deb http://archive.raspbian.org/mate wheezy main" >> /etc/apt/sources.list
+
 # Aggiunta repository Collabora
-echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
+# NOTE:Serviva per il pachhetto weston in wheezy
+#echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
 	
 #TODO testare se funziona ancora il servizio
 echo "#############Registrazione CFS####################"
@@ -30,8 +37,11 @@ cp -r /root/config/etc/network/interfaces /etc/network/interfaces
 
 # Configurazione fstab per SD card
 sh -c 'cat > /etc/fstab << EOF
-proc /proc proc defaults 0 0
-/dev/mmcblk0p1 /boot vfat defaults 0 0
+proc            /proc           proc    defaults          0       0
+/dev/mmcblk0p1  /boot           vfat    defaults          0       2
+/dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
 EOF
 '
 # Profilo Bash per root
@@ -52,24 +62,28 @@ adduser --gecos "" pi
 #--disabled-password 
 
 echo "##########Installazione pacchetti base###########"
-apt-get install -y bash-completion blt build-essential cgroup-bin curl
-apt-get install -y debconf-utils debian-reference-common debian-reference-it
-apt-get install -y dhcpcd5 dphys-swapfile ed esound-common fake-hwclock fbset fonts-freefont-ttf fonts-roboto
-apt-get install -y gdb gdbserver gettext-base gir1.2-glib-2.0 git git-core git-man gksu gnome-icon-theme-symbolic 
-apt-get install -y gvfs-backends gvfs-fuse hardlink idle idle-python2.7 idle-python3.2 idle3 python-tk ifplugd i2c-tools
-apt-get install -y jackd jackd2 manpages-dev mawk menu menu-xdg ncdu nfs-common nuscratch omxplayer openresolv openssl oracle-java8-jdk
-apt-get install -y pkg-config poppler-data poppler-utils pypy-setuptools pypy-upstream pypy-upstream-dev pypy-upstream-doc python-numpy 
-apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio python-serial python3-numpy 
+apt-get install -y alsa-base aspell aspell-en aspell-it avahi-daemon
+apt-get install -y bash-completion binutils blt build-essential bzip2
+apt-get install -y ca-certificates cifs-utils console-setup console-setup-linux cryptsetup-bin cups-bsd cups-client cups-common curl
+apt-get install -y dbus-x11 dc dconf-gsettings-backend:armhf debconf-utils debian-reference-common debian-reference-it dhcpcd5 dphys-swapfile
+apt-get install -y ed eject esound-common
+apt-get install -y fake-hwclock fbset fontconfig fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf fonts-opensymbol fonts-sil-gentium-basic fonts-roboto fuse
+apt-get install -y gdb gdbserver gettext-base git git-core git-man gksu gvfs-backends gvfs-fuse
+apt-get install -y idle idle-python2.7 idle-python3.4 idle3 ifplugd
+apt-get install -y jackd jackd2 java-common javascript-common
+apt-get install -y ncdu nfs-common nuscratch
+apt-get install -y omxplayer openresolv oracle-java8-jdk
+apt-get install -y poppler-utils pypy-setuptools pypy-upstream pypy-upstream-dev pypy-upstream-doc
+apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio python-serial python3-numpy
 apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame
-apt-get install -y python3-rpi.gpio python3-serial raspberrypi-artwork rpi-update smartsim sonic-pi ssh strace
-apt-get install -y supercollider supercollider-common supercollider-server timidity timidity-daemon usbutils v4l-utils vim
-apt-get install -y wireless-tools wpagui wpasupplicant xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
+apt-get install -y python3-rpi.gpio python3-serial
+apt-get install -y raspberrypi-artwork raspberrypi-net-mods raspberrypi-ui-mods raspi-copies-and-fills raspi-gpio rpi-update
+apt-get install -y smartsim sonic-pi ssh strace supercollider supercollider-common supercollider-server timidity usbutils v4l-utils vim
+apt-get install -y wireless-tools wpagui wpasupplicant wiringpi
+apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 
 echo "#########Installazione pacchetti non-free##########"
-apt-get install -y firmware-atheros firmware-libertas firmware-ralink firmware-realtek
-
-echo "####################Wayland########################"
-apt-get install -y weston
+apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
 
 echo "################Installazione mate#################"
 apt-get install -y mate-core mate-desktop-environment mate-bluetooth
@@ -114,12 +128,6 @@ cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 # installare anche en_GB.UTF-8
 dpkg-reconfigure locales
 
-# Configurazione tastiera
-# TODO Probabile non sia necessaria in quando la configurazione avviene qaundo si installa il pacchetto
-dpkg-reconfigure keyboard-configuration &&
-printf "Reloading keymap. This may take a short while\n" &&
-invoke-rc.d keyboard-setup start
-
 # Configurazione timezone
 dpkg-reconfigure tzdata
 
@@ -145,14 +153,6 @@ pip-3.2 install pibrella
 echo "##############Install Pibrella python module########"
 apt-get -y install python-pip
 pip install pibrella
-
-echo "###################Install WiringPI#################"
-rm -rf wiringPi
-git clone git://git.drogon.net/wiringPi
-cd wiringPi
-./build
-cd ..
-rm -rf wiringPi
 
 echo "###################Clean desktop###################"
 rm -rf /home/pi/Desktop/*

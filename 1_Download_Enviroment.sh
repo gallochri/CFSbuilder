@@ -28,10 +28,10 @@ while true; do
 		case $OS_NAME in 
 			Debian | Ubuntu) 
     			sudo apt-get -y install qemu-user-static debootstrap git kpartx;
-    			sudo qemu-debootstrap --no-check-gpg --arch armhf wheezy ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;
+    			sudo qemu-debootstrap --no-check-gpg --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;
 			"openSUSE project")
     			sudo zypper in -n qemu-linux-user debootstrap git kpartx;
-    			sudo debootstrap --no-check-gpg --foreign --arch armhf wheezy ~/CFS2/chroot http://archive.raspbian.org/raspbian;
+    			sudo debootstrap --no-check-gpg --foreign --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;
     			sudo qemu-binfmt-conf.sh;
     			sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
     			sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;
