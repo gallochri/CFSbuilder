@@ -26,6 +26,10 @@ sh -c 'echo 127.0.0.1	raspberrypi >>/etc/hosts'
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
+cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
+
+# Repair filesystem during boot
+cp -r /root/config/etc/default/rcS /etc/default/rcS
 
 # Configurazione fstab per SD card
 sh -c 'cat > /etc/fstab << EOF
