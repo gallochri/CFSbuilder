@@ -2,31 +2,27 @@
 
 # Aggiunta repository standard
 cp -rf /root/config/etc/apt /etc/
-#rm -r /etc/apt/sources.list
-#echo "deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi" >> /etc/apt/sources.list
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate jessie main" >> /etc/apt/sources.list
 # Aggiunta chiavi repository
 wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
 wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
 
-# Aggiunta repository Collabora
-# NOTE:Serviva per il pachhetto weston in wheezy
-#echo "deb http://raspberrypi.collabora.com wheezy rpi" >> /etc/apt/sources.list
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0C50B1C5
-	
-#TODO testare se funziona ancora il servizio
+#TODO con Jessie Debian è passata definitivamente a Systemd
+#TODO Aggiornare gli script!
 echo "#############Registrazione CFS####################"
-install -m 755 /root/sources/cfs-registration /etc/init.d/
-update-rc.d cfs-registration defaults
+#install -m 755 /root/sources/cfs-registration /etc/init.d/
+#update-rc.d cfs-registration defaults
 
+#TODO con Jessie Debian è passata definitivamente a Systemd
+#TODO Aggiornare gli script!
 echo "#############Generatore di Hostname###############"
 sh -c 'echo raspberrypi >/etc/hostname'
 sh -c 'echo 127.0.0.1	raspberrypi >>/etc/hosts'
-install -m 755 /root/sources/name_generator /usr/local/bin/
-install -m 755 /root/sources/hostname.sh /etc/init.d/
-install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-update-rc.d hostname_changed.sh defaults 36 S .
+#install -m 755 /root/sources/name_generator /usr/local/bin/
+#install -m 755 /root/sources/hostname.sh /etc/init.d/
+#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+#update-rc.d hostname_changed.sh defaults 36 S .
 
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
@@ -58,23 +54,27 @@ adduser --gecos "" pi
 #--disabled-password 
 
 echo "##########Installazione pacchetti base###########"
-apt-get install -y alsa-base aspell aspell-en aspell-it avahi-daemon
+echo "##########Pacchetti A-E###########"
+apt-get install -y alsa-base aspell aspell-en aspell-it
 apt-get install -y bash-completion binutils blt build-essential bzip2
-apt-get install -y ca-certificates cifs-utils console-setup console-setup-linux cryptsetup-bin cups-bsd cups-client cups-common curl
+apt-get install -y ca-certificates console-setup console-setup-linux cryptsetup-bin cups-bsd cups-client cups-common curl
 apt-get install -y dbus-x11 dc dconf-gsettings-backend:armhf debconf-utils debian-reference-common debian-reference-it dhcpcd5 dphys-swapfile
 apt-get install -y ed eject esound-common
+echo "##########Pacchetti F-M###########"
 apt-get install -y fake-hwclock fbset fontconfig fonts-dejavu fonts-dejavu-extra fonts-freefont-ttf fonts-opensymbol fonts-sil-gentium-basic fonts-roboto fuse
 apt-get install -y gdb gdbserver gettext-base git git-core git-man gksu gvfs-backends gvfs-fuse
 apt-get install -y idle idle-python2.7 idle-python3.4 idle3 ifplugd
 apt-get install -y jackd jackd2 java-common javascript-common
 apt-get install -y ncdu nfs-common nuscratch
-apt-get install -y omxplayer openresolv oracle-java8-jdk
+echo "##########Pacchetti O-P###########"
+apt-get install -y omxplayer oracle-java8-jdk
 apt-get install -y poppler-utils pypy-setuptools pypy-upstream pypy-upstream-dev pypy-upstream-doc
 apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio python-serial python3-numpy
 apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame
 apt-get install -y python3-rpi.gpio python3-serial
-apt-get install -y raspberrypi-artwork raspberrypi-net-mods  raspi-gpio rpi-update
-apt-get install -y smartsim sonic-pi ssh strace supercollider supercollider-common supercollider-server timidity usbutils v4l-utils vim
+echo "##########Pacchetti R-X###########"
+apt-get install -y raspberrypi-artwork raspberrypi-net-mods raspi-gpio rpi-update
+apt-get install -y smartsim sonic-pi ssh strace timidity usbutils v4l-utils vim
 apt-get install -y wireless-tools wpagui wpasupplicant wiringpi
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 
@@ -94,7 +94,9 @@ install -m 755 -o pi /root/config/home/pi/autostart/autotightvnc.desktop \
 	/home/pi/.config/autostart
 install -m 755 /root/config/home/pi/autostart/tightvnc.desktop \
         /usr/share/applications
-apt-get -y install chromium-browser
+
+#TODO Non c'è più chromium per raspberry, consuma troppa ram
+#apt-get -y install chromium-browser
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install iceweasel iceweasel-l10n-it
@@ -114,11 +116,11 @@ sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
 
-# Inittab per serial console
-cp -r /root/config/etc/inittab /etc/inittab
-
 # wpa supplicant
 cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
+
+# configurazione Sudo
+cp -r /root/config/etc/sudoers /etc/
 
 # Configurazione Locale
 # installare anche en_GB.UTF-8
@@ -138,13 +140,12 @@ sed -i "s/Application;Education;Development;/Development;/g" scratchgpio6*
 mv scratchgpio6* /usr/share/applications/
 cd /home/pi
 
-
 # Aggiornamento
 apt-get -y upgrade 
 
 echo "##############Install Pibrella python3 module#######"
 apt-get -y install python3-pip
-pip-3.2 install pibrella
+pip3 install pibrella
 
 echo "##############Install Pibrella python module########"
 apt-get -y install python-pip
@@ -154,6 +155,7 @@ echo "###################Clean desktop###################"
 rm -rf /home/pi/Desktop/*
 apt-get clean
 
+#TODO: Rivedere tutta la personalizzazione grafica
 echo "###################ArtWork#########################"
 mkdir /home/pi/.cfs-artwork/
 mv /root/artwork/ /home/pi/.cfs-artwork/
