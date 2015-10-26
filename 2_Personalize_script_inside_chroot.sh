@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-
-
-
 # Aggiunta repository standard
 cp -rf /root/config/etc/apt /etc/
 #rm -r /etc/apt/sources.list
@@ -77,7 +73,7 @@ apt-get install -y poppler-utils pypy-setuptools pypy-upstream pypy-upstream-dev
 apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame python-rpi.gpio python-serial python3-numpy
 apt-get install -y python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler python3-pifacedigitalio python3-pygame
 apt-get install -y python3-rpi.gpio python3-serial
-apt-get install -y raspberrypi-artwork raspberrypi-net-mods raspberrypi-ui-mods raspi-copies-and-fills raspi-gpio rpi-update
+apt-get install -y raspberrypi-artwork raspberrypi-net-mods  raspi-gpio rpi-update
 apt-get install -y smartsim sonic-pi ssh strace supercollider supercollider-common supercollider-server timidity usbutils v4l-utils vim
 apt-get install -y wireless-tools wpagui wpasupplicant wiringpi
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
