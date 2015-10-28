@@ -3,6 +3,15 @@
 OS_NAME=`lsb_release -i -s`
 CURRENT_DIR=`pwd`
 
+function opensuse_packages()
+{
+    if [ ! -e /usr/sbin/qemu-binfmt-conf.sh ]; then
+        echo -e;
+        echo "Installazione pacchetti mancanti."
+        sudo zypper in -n qemu-linux-user debootstrap git kpartx;
+    fi
+}
+
 cd ~
 mkdir -p ~/CFS2
 
@@ -17,7 +26,7 @@ while true; do
 					echo -e;
 					sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
 				"openSUSE project" | "SUSE LINUX")
-					echo -e;
+					opensuse_packages
 					sudo qemu-binfmt-conf.sh;
     				sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
     				sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;break;;
@@ -34,7 +43,7 @@ while true; do
     			sudo apt-get -y install qemu-user-static debootstrap git kpartx;
     			sudo qemu-debootstrap --no-check-gpg --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;
 			"openSUSE project" | "SUSE LINUX")
-    			sudo zypper in -n qemu-linux-user debootstrap git kpartx;
+				opensuse_packages
     			sudo debootstrap --no-check-gpg --foreign --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;
     			sudo qemu-binfmt-conf.sh;
     			sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
@@ -63,7 +72,8 @@ sh /root/2_Personalize_script_inside_chroot.sh
 Premi [c]ontinua oppure [t]ermina." -n 1 -r -s
   case $REPLY in
 	  [c]* )echo -e "";break;;
-	  [t]* )exit;;
+	  [t]* )echo -e;
+	        exit;;
 	  * )echo -e "\nPremere [c] per continuare oppure [t] per terminare.";;
   esac
 done
@@ -83,3 +93,4 @@ sudo cp -r ${CURRENT_DIR}/artwork/	~/CFS2/chroot/root/
 			
 # Dentro il chroot
 sudo LC_ALL=C chroot ~/CFS2/chroot
+

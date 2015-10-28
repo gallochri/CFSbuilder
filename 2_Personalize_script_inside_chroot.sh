@@ -1,32 +1,27 @@
 #!/bin/bash
 
+echo "###############Creazione utente pi###############"
+adduser --gecos "" pi
+# --disable-password
+# TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
+# TODO L'utente così creato non fa il login in X, probabile ci sia da configurare X
+# TODO in modo da permettere il login senza password.
+
 # Aggiunta repository standard
 cp -rf /root/config/etc/apt /etc/
+
 # Aggiunta repository Mate
 echo "deb http://archive.raspbian.org/mate jessie main" >> /etc/apt/sources.list
+
 # Aggiunta chiavi repository
 wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
 wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
 
-#TODO con Jessie Debian è passata definitivamente a Systemd
-#TODO Aggiornare gli script!
-echo "#############Registrazione CFS####################"
-#install -m 755 /root/sources/cfs-registration /etc/init.d/
-#update-rc.d cfs-registration defaults
-
-#TODO con Jessie Debian è passata definitivamente a Systemd
-#TODO Aggiornare gli script!
-echo "#############Generatore di Hostname###############"
-sh -c 'echo raspberrypi >/etc/hostname'
-sh -c 'echo 127.0.0.1	raspberrypi >>/etc/hosts'
-#install -m 755 /root/sources/name_generator /usr/local/bin/
-#install -m 755 /root/sources/hostname.sh /etc/init.d/
-#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-#update-rc.d hostname_changed.sh defaults 36 S .
-
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
 cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
+mkdir /etc/wpa_supplicant/
+cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 
 # Repair filesystem during boot
 cp -r /root/config/etc/default/rcS /etc/default/rcS
@@ -40,6 +35,7 @@ proc            /proc           proc    defaults          0       0
 #   use  dphys-swapfile swap[on|off]  for that
 EOF
 '
+
 # Profilo Bash per root
 cp -r /root/config/root/bashrc /root/
 cp -r /root/config/root/profile /root/
@@ -50,16 +46,11 @@ apt-get update
 echo "##########Installazione sistema di base##########"
 apt-get install -y locales sudo openssh-server ntp patch less rsync raspi-config usbmount
 
-echo "###############Creazione utente pi###############"
-adduser --gecos "" pi
-# TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
-# L'utente così creato non fa il login in X, probabile ci sia da configurare X 
-# in modo da permettere il login senza password.
-#--disabled-password 
+# configurazione Sudo
+cp -r /root/config/etc/sudoers /etc/
 
 echo "##########Installazione pacchetti base###########"
-echo "##########Pacchetti A-E###########"
-apt-get install -y alsa-base aspell aspell-en aspell-it
+echo "##########Pacchetti B-E###########"
 apt-get install -y bash-completion binutils blt build-essential bzip2
 apt-get install -y ca-certificates console-setup console-setup-linux cryptsetup-bin cups-bsd cups-client cups-common curl
 apt-get install -y dbus-x11 dc dconf-gsettings-backend:armhf debconf-utils debian-reference-common debian-reference-it dhcpcd5 dphys-swapfile
@@ -92,6 +83,23 @@ echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm
 
 echo "###################Programmi CFS###################"
+
+#TODO con Jessie Debian è passata definitivamente a Systemd
+#TODO Aggiornare gli script!
+echo "#############Registrazione CFS####################"
+#install -m 755 /root/sources/cfs-registration /etc/init.d/
+#update-rc.d cfs-registration defaults
+
+#TODO con Jessie Debian è passata definitivamente a Systemd
+#TODO Aggiornare gli script!
+echo "#############Generatore di Hostname###############"
+sh -c 'echo raspberrypi >/etc/hostname'
+sh -c 'echo 127.0.0.1	raspberrypi >>/etc/hosts'
+#install -m 755 /root/sources/name_generator /usr/local/bin/
+#install -m 755 /root/sources/hostname.sh /etc/init.d/
+#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+#update-rc.d hostname_changed.sh defaults 36 S .
+
 apt-get -y install tightvncserver
 su -l pi -c "mkdir -p ~/.config/autostart/"
 install -m 755 -o pi /root/config/home/pi/autostart/autotightvnc.desktop \
@@ -107,7 +115,6 @@ apt-get -y install iceweasel iceweasel-l10n-it
 apt-get -y install lirc liblircclient-dev
 apt-get -y install -y avahi-daemon cifs-utils
 
-
 # Aggiunta dell'utente Pi ai gruppi
 groupadd -g 999 input
 usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,spi,gpio,i2c,input pi
@@ -119,12 +126,6 @@ sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=.*/autologin-user=pi/"
 
 # Configurazione usbmount.conf
 sed -i -e 's/""/"-fstype=vfat,flush,gid=plugdev,dmask=0007,fmask=0117"/g' /etc/usbmount/usbmount.conf
-
-# wpa supplicant
-cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
-
-# configurazione Sudo
-cp -r /root/config/etc/sudoers /etc/
 
 # Configurazione Locale
 # installare anche en_GB.UTF-8
