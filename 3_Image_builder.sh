@@ -1,8 +1,8 @@
 #!/bin/bash
 
 OS_NAME=`lsb_release -i -s`
-#TODO nel caso l'ora sia a singola cifra (dal 1 al 9) l'opzione %k mette uno spazio che crea problemi
-IMG_REV=`date +%Y-%m-%d_%k%M`
+DATE_TIME=`date +%Y-%m-%d_%k%M`
+IMG_REV=`echo ${DATE_TIME} | sed "s/ //g"`
 CURRENT_DIR=`pwd`
 
 sudo rm -r ~/CFS2/chroot/root/2_Personalize_script_inside_chroot.sh
