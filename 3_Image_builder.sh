@@ -87,7 +87,10 @@ echo "#####Copiatura config.txt#####"
 sudo cp ${CURRENT_DIR}/config/boot/config.txt /mnt/bootfs/config.txt
 
 echo "#####Copiatura cmdline.txt######"
-sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt 
+sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt
+
+echo "#####Copiatura licenza Oracle######"
+sudo cp ${CURRENT_DIR}/config/boot/LICENSE.oracle /mnt/bootfs/LICENSE.oracle
 
 sudo umount /mnt/bootfs
 
