@@ -35,8 +35,8 @@ EOF
 '
 
 # Profilo Bash per root
-cp -r /root/config/root/bashrc /root/
-cp -r /root/config/root/profile /root/
+cp -r /root/config/root/bashrc /root/.bashrc
+cp -r /root/config/root/profile /root/.profile
 
 # Aggiornamento archivi
 apt-get update
