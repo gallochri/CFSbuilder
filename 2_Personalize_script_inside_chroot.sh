@@ -70,7 +70,7 @@ cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 apt-get install -y openssh-server patch rsync raspi-config usbmount
 
 #Regole udev
-cp -r /root/config/etc/udev/rules.d /etc/udev/rules.d
+cp -r /root/config/etc/udev/rules.d/* /etc/udev/rules.d/*
 
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
@@ -97,6 +97,9 @@ apt-get install -y raspberrypi-artwork rpi-update
 apt-get install -y smartsim sonic-pi ssh strace timidity usbutils v4l-utils vim
 apt-get install -y wireless-tools wpagui
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev x11-xserver-utils
+
+# source profile at login
+cp -r /root/config/etc/X11/Xsession.d/* /etc/X11/Xsession.d/
 
 echo "#########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
