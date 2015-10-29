@@ -69,6 +69,9 @@ cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 
 apt-get install -y openssh-server patch rsync raspi-config usbmount
 
+#Regole udev
+cp -r /root/config/etc/udev/rules.d /etc/udev/rules.d
+
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
 apt-get install -y bash-completion binutils blt build-essential
@@ -78,7 +81,7 @@ apt-get install -y ed eject esound-common
 echo "##########Pacchetti F-M###########"
 apt-get install -y fake-hwclock fbset fuse
 apt-get install -y fontconfig fonts-dejavu fonts-freefont-ttf fonts-opensymbol fonts-sil-gentium-basic fonts-roboto
-apt-get install -y gdb gettext-base git git-core gksu gvfs-backends gvfs-fuse
+apt-get install -y gdb gettext-base git git-core gksu gvfs-backends gvfs-fuse gnupg-agent
 apt-get install -y idle idle3
 apt-get install -y java-common javascript-common
 apt-get install -y nfs-common nuscratch
