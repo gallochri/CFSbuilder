@@ -84,9 +84,13 @@ apt-get install -y ed eject esound-common
 echo "##########Pacchetti F-M###########"
 apt-get install -y fake-hwclock fbset fuse
 apt-get install -y fontconfig fonts-dejavu fonts-freefont-ttf fonts-opensymbol fonts-sil-gentium-basic fonts-roboto
-apt-get install -y gdb gettext-base git git-core gksu gvfs-backends gvfs-fuse gnupg-agent
+apt-get install -y gdb gettext-base git git-core gksu gvfs-backends gvfs-fuse gnupg-agent gnupg2 gsfonts-x11
+apt-get install -y hardlink
 apt-get install -y idle idle3
 apt-get install -y java-common javascript-common
+apt-get install -y libglew1.10 libgif4 libimlib2 libmozjs185-1.0 libportaudio2
+apt-get install -y libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc lsb-release
+apt-get install -y module-init-tools
 apt-get install -y nfs-common nuscratch
 echo "##########Pacchetti O-P###########"
 apt-get install -y omxplayer oracle-java8-jdk
@@ -96,7 +100,7 @@ apt-get install -y python-rpi.gpio python-serial python-pip
 apt-get install -y python3-numpy python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler
 apt-get install -y python3-pygame python3-rpi.gpio python3-serial python3-pip
 echo "##########Pacchetti R-X###########"
-apt-get install -y raspberrypi-artwork rpi-update
+apt-get install -y raspberrypi-artwork rpi-update raspi-gpio rc-gui raspi-copies-and-fills
 apt-get install -y smartsim sonic-pi ssh strace timidity usbutils v4l-utils vim
 apt-get install -y wireless-tools wpagui
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev x11-xserver-utils
