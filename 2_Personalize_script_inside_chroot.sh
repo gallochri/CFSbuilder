@@ -60,6 +60,9 @@ dpkg-reconfigure tzdata
 apt-get install -y console-setup
 # Configurazione della tastiera
 
+#Audio
+apt-get install -y jackd jackd2
+
 apt-get install -y ifplugd wpasupplicant
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
@@ -70,7 +73,7 @@ cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 apt-get install -y openssh-server patch rsync raspi-config usbmount
 
 #Regole udev
-cp -r /root/config/etc/udev/rules.d/* /etc/udev/rules.d/*
+cp -r /root/config/etc/udev/rules.d/* /etc/udev/rules.d/
 
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
