@@ -75,6 +75,9 @@ apt-get install -y openssh-server patch rsync raspi-config usbmount
 #Regole udev
 cp -r /root/config/etc/udev/rules.d/* /etc/udev/rules.d/
 
+#Moduli da caricare al boot
+cp -r /root/config/etc/modules /etc/modules
+
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
 apt-get install -y bash-completion binutils blt build-essential
@@ -100,7 +103,8 @@ apt-get install -y python-rpi.gpio python-serial python-pip
 apt-get install -y python3-numpy python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler
 apt-get install -y python3-pygame python3-rpi.gpio python3-serial python3-pip
 echo "##########Pacchetti R-X###########"
-apt-get install -y raspberrypi-artwork rpi-update raspi-gpio rc-gui raspi-copies-and-fills
+apt-get install -y raspberrypi-artwork rpi-update raspi-gpio rc-gui
+#raspi-copies-and-fills
 apt-get install -y smartsim sonic-pi ssh strace timidity usbutils v4l-utils vim
 apt-get install -y wireless-tools wpagui
 apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev x11-xserver-utils
