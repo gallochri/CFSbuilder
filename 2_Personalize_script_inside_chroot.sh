@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo "###############Creazione utente pi###############"
-adduser --gecos "" pi
-# --disabled-password
+adduser --gecos "" pi --disabled-password
 # TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
 # TODO L'utente così creato non fa il login in X, probabile ci sia da configurare X
 # TODO in modo da permettere il login senza password.
@@ -62,6 +61,8 @@ apt-get install -y console-setup
 
 #Audio
 apt-get install -y jackd jackd2
+#Per forzare l'audio HDMI
+#amixer cset numid=3 2
 
 apt-get install -y ifplugd wpasupplicant
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
@@ -121,21 +122,21 @@ apt-get install -y mate-core mate-desktop-environment mate-bluetooth
 echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm
 
+echo "###################################################"
 echo "###################Programmi CFS###################"
+echo "###################################################"
 
-#TODO con Jessie Debian è passata definitivamente a Systemd
-#TODO Aggiornare gli script!
 echo "#############Registrazione CFS####################"
-#install -m 755 /root/sources/cfs-registration /etc/init.d/
-#update-rc.d cfs-registration defaults
+install -m 755 /root/sources/cfs-registration /etc/init.d/
+install -m 644 /root/lib/systemd/system/cfs-registration.service /lib/systemd/system/cfs-registration.service
+systemctl enable cfs-registration
 
 #TODO con Jessie Debian è passata definitivamente a Systemd
 #TODO Aggiornare gli script!
 echo "#############Generatore di Hostname###############"
-
-#install -m 755 /root/sources/name_generator /usr/local/bin/
-#install -m 755 /root/sources/hostname.sh /etc/init.d/
-#install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
+install -m 755 /root/sources/name_generator /usr/local/bin/
+install -m 755 /root/sources/hostname.sh /etc/init.d/
+install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
 #update-rc.d hostname_changed.sh defaults 36 S .
 
 # TightVNC

@@ -1,0 +1,13 @@
+[Unit]
+Description=CFS registration service
+After=networking.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/cfs-registration
+ExecStartPost=/bin/systemctl disable cfs-registration
+TimeoutSec=0
+StandardInput=tty
+
+[Install]
+WantedBy=network-online.target
