@@ -33,8 +33,8 @@ do_start () {
 			sed s:${OLD_HOSTNAME}:${HOSTNAME}:g $file > ${file}.new && mv ${file}.new $file && echo "done" || echo "failed"
 		done
 
-		echo
-		[ "$VERBOSE" != no ] && log_action_begin_msg "building new ssh key"
+		echo "Building new ssh key"
+		[ "$VERBOSE" != no ] && log_action_begin_msg
 		rm -rf /etc/ssh/ssh_host_*
 		ssh-keygen -A
 		ES=$?

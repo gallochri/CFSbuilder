@@ -1,0 +1,14 @@
+[Unit]
+Description=CFS hostname changer
+After=console-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/hostname.sh
+ExecStart=/etc/init.d/hostname_changed.sh
+ExecStartPost=/bin/systemctl disable cfs-hostname
+TimeoutSec=0
+StandardInput=tty
+
+[Install]
+WantedBy=sysinit.target

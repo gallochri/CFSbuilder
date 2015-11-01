@@ -3,8 +3,7 @@
 echo "###############Creazione utente pi###############"
 adduser --gecos "" pi --disabled-password
 # TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
-# TODO L'utente così creato non fa il login in X, probabile ci sia da configurare X
-# TODO in modo da permettere il login senza password.
+# TODO L'utente fa il login in automatico ma se esce dalla sessione non può fare il login da DM.
 
 # Aggiunta repository standard
 cp -rf /root/config/etc/apt /etc/
@@ -131,13 +130,12 @@ install -m 755 /root/sources/cfs-registration /etc/init.d/
 install -m 644 /root/lib/systemd/system/cfs-registration.service /lib/systemd/system/cfs-registration.service
 systemctl enable cfs-registration
 
-#TODO con Jessie Debian è passata definitivamente a Systemd
-#TODO Aggiornare gli script!
 echo "#############Generatore di Hostname###############"
 install -m 755 /root/sources/name_generator /usr/local/bin/
 install -m 755 /root/sources/hostname.sh /etc/init.d/
 install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-#update-rc.d hostname_changed.sh defaults 36 S .
+install -m 644 /root/lib/systemd/system/cfs-hostname.service /lib/systemd/system/cfs-hostname.service
+systemctl enable cfs-hostname
 
 # TightVNC
 apt-get install -y tightvncserver
