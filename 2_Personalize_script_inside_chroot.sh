@@ -127,14 +127,14 @@ echo "###################################################"
 
 echo "#############Registrazione CFS####################"
 install -m 755 /root/sources/cfs-registration /etc/init.d/
-install -m 644 /root/lib/systemd/system/cfs-registration.service /lib/systemd/system/cfs-registration.service
+install -m 644 /root/config/lib/systemd/system/cfs-registration.service /lib/systemd/system/cfs-registration.service
 systemctl enable cfs-registration
 
 echo "#############Generatore di Hostname###############"
 install -m 755 /root/sources/name_generator /usr/local/bin/
 install -m 755 /root/sources/hostname.sh /etc/init.d/
 install -m 755 /root/sources/hostname_changed.sh /etc/init.d/
-install -m 644 /root/lib/systemd/system/cfs-hostname.service /lib/systemd/system/cfs-hostname.service
+install -m 644 /root/config/lib/systemd/system/cfs-hostname.service /lib/systemd/system/cfs-hostname.service
 systemctl enable cfs-hostname
 
 # TightVNC

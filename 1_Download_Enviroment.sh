@@ -59,7 +59,7 @@ done
 
 cd ~/CFS2
 if [ -d ~/CFS2/firmware ]; then
-	echo -e "\nCartella Firmware presente, Aggiono!";cd firmware; sudo git fetch origin; sudo git reset --hard origin/master
+	echo -e "\nCartella Firmware presente, Aggiorno!";cd firmware; sudo git fetch origin; sudo git reset --hard origin/master
 else
 	echo -e;sudo rm -rf firmware; sudo git clone https://github.com/raspberrypi/firmware.git;
 fi
