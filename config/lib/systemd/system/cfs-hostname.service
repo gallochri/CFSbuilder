@@ -1,6 +1,5 @@
 [Unit]
 Description=CFS hostname changer
-After=console-setup.service
 
 [Service]
 Type=oneshot
@@ -11,4 +10,4 @@ TimeoutSec=0
 StandardInput=tty
 
 [Install]
-WantedBy=sysinit.target
+WantedBy=basic.target
