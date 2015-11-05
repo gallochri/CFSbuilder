@@ -21,7 +21,7 @@ while true; do
 		case $REPLY in
 			#TODO Verificare che non ci siano filesystem montati nella chroot altrimenti scappella
 			[s]* ) echo -e "\nCancellazione chroot e creazione nuova debootstrap "; sudo rm -r ~/CFS2/chroot;;
-			[n]* ) case $OS_NAME in
+			[n]* ) case ${OS_NAME} in
 				Debian | Ubuntu)
 					echo -e;
 					sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
@@ -38,7 +38,7 @@ while true; do
 			* ) echo -e "\nPremere [s] per ripartire con una chroot pulita oppure [n] per utilizzare quella esistente";;
 		esac
 	else
-		case $OS_NAME in 
+		case ${OS_NAME} in
 			Debian | Ubuntu) 
     			sudo apt-get -y install qemu-user-static debootstrap git kpartx;
     			sudo qemu-debootstrap --no-check-gpg --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;

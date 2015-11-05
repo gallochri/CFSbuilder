@@ -10,7 +10,7 @@ sudo rm -r ~/CFS2/chroot/root/sources/
 sudo rm -r ~/CFS2/chroot/root/config/
 sudo rm -r ~/CFS2/chroot/root/artwork/
 
-case $OS_NAME in 
+case ${OS_NAME} in
   Debian | Ubuntu) sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-static;;
   "openSUSE project") sudo rm ~/CFS2/chroot/usr/bin/qemu-arm-binfmt; sudo rm ~/CFS2/chroot/usr/bin/qemu-arm;;
 esac
