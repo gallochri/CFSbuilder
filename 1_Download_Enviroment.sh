@@ -20,21 +20,21 @@ while true; do
 		read -p "Esiste già una chroot, vuoi sovrascriverla [s/n]?" -n 1 -r -s
 		case $REPLY in
 			#TODO Verificare che non ci siano filesystem montati nella chroot altrimenti scappella
-			[s]* ) echo -e "\nCancellazione chroot e creazione nuova debootstrap "; sudo rm -r ~/CFS2/chroot;;
+			[s]* ) echo -e "\nCancellazione chroot e creazione nuova debootstrap "; sudo rm -r ~/CFS2/chroot;break;;
 			[n]* ) case ${OS_NAME} in
-				Debian | Ubuntu)
-					echo -e;
-					sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
-				"openSUSE project" | "SUSE LINUX")
-					opensuse_packages
-					sudo qemu-binfmt-conf.sh;
-    				sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
-    				sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;break;;
-    			* )
-    				echo -e;
-    				echo "Sistema non supportato";
-    				exit;;
-    			esac;;
+						Debian | Ubuntu)
+							echo -e;
+							sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
+						"openSUSE project" | "SUSE LINUX")
+							opensuse_packages
+							sudo qemu-binfmt-conf.sh;
+    						sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
+    						sudo sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;break;;
+    					* )
+    						echo -e;
+    						echo "Sistema non supportato";
+    						exit;;
+    				esac;;
 			* ) echo -e "\nPremere [s] per ripartire con una chroot pulita oppure [n] per utilizzare quella esistente";;
 		esac
 	else
@@ -58,10 +58,15 @@ while true; do
 done
 
 cd ~/CFS2
+
 if [ -d ~/CFS2/firmware ]; then
-	echo -e "\nCartella Firmware presente, Aggiorno!";cd firmware; sudo git fetch origin; sudo git reset --hard origin/master
+	echo -e "\nCartella Firmware presente, Aggiorno!";
+	cd firmware;
+	sudo git fetch origin;
+	sudo git reset --hard origin/master;
 else
-	echo -e;sudo rm -rf firmware; sudo git clone https://github.com/raspberrypi/firmware.git;
+	echo -e;sudo rm -rf firmware;
+	sudo git clone https://github.com/raspberrypi/firmware.git;
 fi
 		
 while true; do
@@ -74,7 +79,7 @@ Premi [c]ontinua oppure [t]ermina." -n 1 -r -s
 	  [c]* )echo -e "";break;;
 	  [t]* )echo -e;
 	        exit;;
-	  * )echo -e "\nPremere [c] per continuare oppure [t] per terminare.";;
+	  * )echo -e "\nPremere [c] per continuare oppure [t] per terminare.";break;;
   esac
 done
 
