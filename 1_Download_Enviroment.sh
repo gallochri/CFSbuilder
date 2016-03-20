@@ -5,11 +5,9 @@ CURRENT_DIR=`pwd`
 
 function opensuse_packages()
 {
-    if [ ! -e /usr/sbin/qemu-binfmt-conf.sh ]; then
         echo -e;
         echo "Installazione pacchetti mancanti."
         sudo zypper in -n qemu-linux-user debootstrap git kpartx;
-    fi
 }
 
 cd ~
@@ -25,7 +23,7 @@ while true; do
 						Debian | Ubuntu)
 							echo -e;
 							sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;break;;
-						"openSUSE project" | "SUSE LINUX")
+						"openSUSE project" | "SUSE LINUX" | "openSUSE")
 							opensuse_packages
 							sudo qemu-binfmt-conf.sh;
     						sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
@@ -42,7 +40,7 @@ while true; do
 			Debian | Ubuntu) 
     			sudo apt-get -y install qemu-user-static debootstrap git kpartx;
     			sudo qemu-debootstrap --no-check-gpg --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;
-			"openSUSE project" | "SUSE LINUX")
+			"openSUSE project" | "SUSE LINUX" | "openSUSE")
 				opensuse_packages
     			sudo debootstrap --no-check-gpg --foreign --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;
     			sudo qemu-binfmt-conf.sh;
