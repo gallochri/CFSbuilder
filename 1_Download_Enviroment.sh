@@ -32,7 +32,7 @@ while true; do
 							echo -e;
 							sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;
 							break;;
-						"openSUSE project" | "SUSE LINUX" | "openSUSE")
+						"openSUSE project" | "SUSE LINUX" | "openSUSE" | "openSUSE Tumbleweed")
 							opensuse_packages
 							sudo qemu-binfmt-conf.sh;
     						sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
@@ -53,7 +53,7 @@ while true; do
     			debian_packages;
     			echo "Building chroot...";
     			sudo qemu-debootstrap --no-check-gpg --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;break;;
-			"openSUSE project" | "SUSE LINUX" | "openSUSE")
+			"openSUSE project" | "SUSE LINUX" | "openSUSE"  | "openSUSE Tumbleweed")
 				opensuse_packages;
 				echo "Building chroot...";
     			sudo debootstrap --no-check-gpg --foreign --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;
