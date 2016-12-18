@@ -31,8 +31,8 @@ function opensuse_chroot() {
     echo "### Building chroot...";
     sudo debootstrap --no-check-gpg --foreign --arch armhf jessie ~/CFS2/chroot http://archive.raspbian.org/raspbian;
     sudo qemu-binfmt-conf.sh;
-    sudo cp /usr/bin/qemu-arm-binfmt CFS2/chroot/usr/bin/;
-    sudo cp /usr/bin/qemu-arm CFS2/chroot/usr/bin/;
+    sudo cp /usr/bin/qemu-arm-binfmt ~/CFS2/chroot/usr/bin/;
+    sudo cp /usr/bin/qemu-arm ~/CFS2/chroot/usr/bin/;
     sudo DEBIAN_FRONTEND=noninteractive \
          DEBCONF_NONINTERACTIVE_SEEN=true  \
          LC_ALL=C \
@@ -72,7 +72,16 @@ while true; do
 			        then debian_chroot;fi;
 			    break;;
 			[n]* )
-			    echo -e "\n### Continuing with the existing chroot";break;;
+			    echo -e "\n### Continuing with the existing chroot";
+			    sudo qemu-binfmt-conf.sh;
+                sudo cp /usr/bin/qemu-arm-binfmt ~/CFS2/chroot/usr/bin/;
+                sudo cp /usr/bin/qemu-arm ~/CFS2/chroot/usr/bin/;
+                sudo DEBIAN_FRONTEND=noninteractive \
+                     DEBCONF_NONINTERACTIVE_SEEN=true  \
+                     LC_ALL=C \
+                     LANGUAGE=C \
+                     LANG=C \
+                     chroot ~/CFS2/chroot/ /debootstrap/debootstrap --second-stage;break;;
 			* ) echo -e "\n### Press [y] for new clean chroot or [n] for existing chroot";;
 		esac
 	else
@@ -110,8 +119,8 @@ while true; do
 done
 
 #Mount FS
-sudo mount -t proc proc ~/CFS2/chroot/proc
-sudo mount -t sysfs sysfs ~/CFS2/chroot/sys
+sudo mount -t proc /proc ~/CFS2/chroot/proc
+sudo mount -t sysfs /sysfs ~/CFS2/chroot/sys
 sudo mount -o bind /dev ~/CFS2/chroot/dev
 sudo mount -o bind /dev/pts ~/CFS2/chroot/dev/pts
 
