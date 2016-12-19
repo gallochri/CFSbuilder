@@ -27,8 +27,6 @@ sh -c 'cat > /etc/fstab << EOF
 proc            /proc           proc    defaults          0       0
 /dev/mmcblk0p1  /boot           vfat    defaults          0       2
 /dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
-# a swapfile is not a swap partition, no line here
-#   use  dphys-swapfile swap[on|off]  for that
 EOF
 '
 
@@ -66,7 +64,7 @@ apt-get install -y jackd jackd2
 apt-get install -y ifplugd wpasupplicant
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
-cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
+#cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
 cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 
 apt-get install -y openssh-server patch rsync raspi-config usbmount
