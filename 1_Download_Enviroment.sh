@@ -73,6 +73,12 @@ while true; do
 			    break;;
 			[n]* )
 			    echo -e "\n### Continuing with the existing chroot";
+			    if [ "$SUSE" = true ];
+			        then sudo qemu-binfmt-conf.sh
+			             sudo cp /usr/bin/qemu-arm-binfmt ~/CFS2/chroot/usr/bin/
+                         sudo cp /usr/bin/qemu-arm ~/CFS2/chroot/usr/bin/;fi;
+			    if [ "$DEBIAN" = true ];
+			        then sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;fi;
 			    break;;
 			* ) echo -e "\n### Press [y] for new clean chroot or [n] for existing chroot";;
 		esac
