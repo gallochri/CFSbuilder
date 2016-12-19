@@ -14,7 +14,7 @@ case ${OS_NAME} in
         echo "### SUSE derived detected.";
         SUSE=true;
         break;;
-    * )
+    *)
         echo -e;
    	    echo "### Unsupported System";exit;break;;
 esac;
@@ -22,7 +22,7 @@ esac;
 function opensuse_packages() {
     echo -e
     echo "### "${OS_NAME};
-    echo "### Install missing package.";
+    echo "### Install missing packages.";
     sudo zypper in -n qemu-linux-user debootstrap git kpartx;
 }
 
@@ -44,7 +44,7 @@ function opensuse_chroot() {
 function debian_packages() {
     echo -e
     echo "### "${OS_NAME};
-    echo "### Install missing package.";
+    echo "### Install missing packages.";
     sudo apt-get -y install qemu-user-static debootstrap git kpartx;
 }
 
@@ -89,6 +89,7 @@ while true; do
 	    then opensuse_packages;opensuse_chroot;fi;
 	    if [ "$DEBIAN" = true ];
 	    then debian_packages;debian_chroot;fi;
+	    break;
 	fi
 done
 
@@ -100,7 +101,7 @@ if [ -d ~/CFS2/firmware ]; then
 	sudo git fetch origin;
 	sudo git reset --hard origin/master;
 else
-	echo -e; "\n### Cloning firmware.";
+	echo -e "\n### Cloning firmware.";
 	sudo rm -rf firmware;
 	sudo git clone https://github.com/raspberrypi/firmware.git;
 fi
