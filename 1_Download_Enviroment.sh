@@ -73,15 +73,13 @@ while true; do
 			    break;;
 			[n]* )
 			    echo -e "\n### Continuing with the existing chroot";
-			    sudo qemu-binfmt-conf.sh;
-                sudo cp /usr/bin/qemu-arm-binfmt ~/CFS2/chroot/usr/bin/;
-                sudo cp /usr/bin/qemu-arm ~/CFS2/chroot/usr/bin/;
-                sudo DEBIAN_FRONTEND=noninteractive \
-                     DEBCONF_NONINTERACTIVE_SEEN=true  \
-                     LC_ALL=C \
-                     LANGUAGE=C \
-                     LANG=C \
-                     chroot ~/CFS2/chroot/ /debootstrap/debootstrap --second-stage;break;;
+			    if [ "$SUSE" = true ];
+			        then sudo qemu-binfmt-conf.sh
+			             sudo cp /usr/bin/qemu-arm-binfmt ~/CFS2/chroot/usr/bin/
+                         sudo cp /usr/bin/qemu-arm ~/CFS2/chroot/usr/bin/;fi;
+			    if [ "$DEBIAN" = true ];
+			        then sudo cp /usr/bin/qemu-arm-static ~/CFS2/chroot/usr/bin/qemu-arm-static;fi;
+			    break;;
 			* ) echo -e "\n### Press [y] for new clean chroot or [n] for existing chroot";;
 		esac
 	else
@@ -109,9 +107,9 @@ fi
 while true; do
   echo -e "\n"
   read -p "### At the end of this script you will be inside the Raspbian chroot and
-  You can edit and then launch the customization script:
-  sh /root/2_Personalize_script_inside_chroot.sh
-  Press [c]ontinues or [e]nds." -n 1 -r -s
+    You can edit and then launch the customization script:
+    sh /root/2_Personalize_script_inside_chroot.sh
+    Press [c]ontinues or [e]nds." -n 1 -r -s
   case $REPLY in
 	  [c]* )echo -e "";break;;
 	  [e]* )echo -e;exit;break;;

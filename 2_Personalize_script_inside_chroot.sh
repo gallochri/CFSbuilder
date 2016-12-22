@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "###############Creazione utente pi###############"
-adduser --gecos "" pi --disabled-password
+adduser --gecos "" pi
 # TODO Mettendo l'opzione --disabled-password si crea un utente senza password.
 # TODO L'utente fa il login in automatico ma se esce dalla sessione non può fare il login da DM.
 
@@ -9,7 +9,7 @@ adduser --gecos "" pi --disabled-password
 cp -rf /root/config/etc/apt /etc/
 
 # Aggiunta repository Mate
-echo "deb http://archive.raspbian.org/mate jessie main" >> /etc/apt/sources.list
+# echo "deb http://archive.raspbian.org/mate jessie main" >> /etc/apt/sources.list
 
 # Aggiunta chiavi repository
 wget http://archive.raspbian.org/raspbian.public.key -O - | apt-key add -
@@ -27,8 +27,6 @@ sh -c 'cat > /etc/fstab << EOF
 proc            /proc           proc    defaults          0       0
 /dev/mmcblk0p1  /boot           vfat    defaults          0       2
 /dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
-# a swapfile is not a swap partition, no line here
-#   use  dphys-swapfile swap[on|off]  for that
 EOF
 '
 
@@ -41,6 +39,7 @@ apt-get update
 
 echo "##########Installazione sistema di base##########"
 
+apt-get install -y apt-listchanges
 apt-get install -y locales
 # Configurazione Locale
 # en_GB.UTF-8
@@ -66,8 +65,7 @@ apt-get install -y jackd jackd2
 apt-get install -y ifplugd wpasupplicant
 # Copiatura configurazione eth0 con DHCP e wpa supplicant
 cp -r /root/config/etc/network/interfaces /etc/network/interfaces
-cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
-mkdir /etc/wpa_supplicant/
+#cp -r /root/config/etc/default/ifplugd /etc/default/ifplugd
 cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 
 apt-get install -y openssh-server patch rsync raspi-config usbmount
@@ -116,7 +114,7 @@ echo "#########Installazione pacchetti non-free##########"
 apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
 
 echo "################Installazione mate#################"
-apt-get install -y mate-core mate-desktop-environment mate-bluetooth
+#apt-get install -y mate-core mate-desktop-environment mate-bluetooth
 
 echo "###########Installazione Desktop Manager###########"
 apt-get install -y lightdm

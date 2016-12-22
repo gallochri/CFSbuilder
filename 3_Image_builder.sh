@@ -91,6 +91,7 @@ sudo cp ${CURRENT_DIR}/config/boot/cmdline.txt /mnt/bootfs/cmdline.txt
 
 echo "#####Copiatura licenza Oracle######"
 sudo cp ${CURRENT_DIR}/config/boot/LICENSE.oracle /mnt/bootfs/LICENSE.oracle
+sudo cp ${CURRENT_DIR}/config/boot/LICENSE.oracle /mnt/bootfs/LICENSE.broadcom
 
 sudo umount /mnt/bootfs
 
