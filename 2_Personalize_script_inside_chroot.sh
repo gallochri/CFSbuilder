@@ -39,6 +39,7 @@ apt-get update
 
 echo "##########Installazione sistema di base##########"
 
+apt-get install -y apt-listchanges
 apt-get install -y locales
 # Configurazione Locale
 # en_GB.UTF-8
