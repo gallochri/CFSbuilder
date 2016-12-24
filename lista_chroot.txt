@@ -18,6 +18,8 @@ ii  aspell                                0.60.7~20110707-1.3                   
 ii  aspell-en                             7.1-0-1.1                                 all          English dictionary for GNU Aspell
 ii  aspell-it                             2.4-20070901-0-2.1                        all          Italian dictionary for GNU Aspell
 ii  at-spi2-core                          2.14.0-1                                  armhf        Assistive Technology Service Provider Interface (dbus core)
+ii  attr                                  1:2.4.47-2                                armhf        Utilities for manipulating filesystem extended attributes
+ii  avahi-daemon                          0.6.31-5                                  armhf        Avahi mDNS/DNS-SD daemon
 ii  base-files                            8+rpi1                                    armhf        Debian base system miscellaneous files
 ii  base-passwd                           3.5.37                                    armhf        Debian base system master password and group files
 ii  bash                                  4.3-11                                    armhf        GNU Bourne Again SHell
@@ -35,6 +37,7 @@ ii  bzip2                                 1.0.6-7                               
 ii  ca-certificates                       20141019+deb8u1                           all          Common CA certificates
 ii  ca-certificates-java                  20140324                                  all          Common CA certificates (JKS keystore)
 ii  chromium-browser                      51.0.2704.91-0ubuntu0.14.04.1.7015        armhf        Chromium web browser, open-source version of Chrome
+ii  cifs-utils                            2:6.4-1                                   armhf        Common Internet File System utilities
 ii  claws-mail                            3.11.1-3+deb8u1                           armhf        Fast, lightweight and user-friendly GTK+2 based email client
 ii  claws-mail-i18n                       3.11.1-3+deb8u1                           all          Locale data for Claws Mail (i18n support)
 ii  coinor-libcbc3                        2.8.12-1                                  armhf        Coin-or branch-and-cut mixed integer programming solver (shared libraries)
@@ -187,12 +190,19 @@ ii  gvfs:armhf                            1.22.2-1                              
 ii  gvfs-backends                         1.22.2-1                                  armhf        userspace virtual filesystem - backends
 ii  gvfs-common                           1.22.2-1                                  all          userspace virtual filesystem - common data files
 ii  gvfs-daemons                          1.22.2-1                                  armhf        userspace virtual filesystem - servers
+ii  gvfs-fuse                             1.22.2-1                                  armhf        userspace virtual filesystem - fuse server
 ii  gvfs-libs:armhf                       1.22.2-1                                  armhf        userspace virtual filesystem - private libraries
 ii  gzip                                  1.6-4                                     armhf        GNU compression utilities
+ii  hardlink                              0.3.0                                     armhf        Hardlinks multiple copies of the same file
 ii  hicolor-icon-theme                    0.13-1                                    all          default fallback theme for FreeDesktop.org icon themes
 ii  hostname                              3.15                                      armhf        utility to set/show the host name or domain name
 ii  hunspell-en-us                        20070829-6                                all          English_american dictionary for hunspell
+ii  i2c-tools                             3.1.1+svn-2                               armhf        heterogeneous set of I2C tools for Linux
 ii  icedtea-7-jre-jamvm:armhf             7u111-2.6.7-2~deb8u1+rpi1                 armhf        Alternative JVM for OpenJDK, using JamVM
+ii  idle                                  2.7.9-1                                   all          IDE for Python using Tkinter (default version)
+ii  idle-python2.7                        2.7.9-2+deb8u1                            all          IDE for Python (v2.7) using Tkinter
+ii  idle-python3.4                        3.4.2-1                                   all          IDE for Python (v3.4) using Tkinter
+ii  idle3                                 3.4.2-2                                   all          IDE for Python using Tkinter (default version)
 ii  ifplugd                               0.28-19                                   armhf        configuration daemon for ethernet devices
 ii  ifupdown                              0.7.53.1                                  armhf        high level tools to configure network interfaces
 ii  info                                  5.2.0.dfsg.1-6                            armhf        Standalone GNU Info documentation browser
@@ -212,15 +222,20 @@ ii  iw                                    3.17-1                                
 ii  jackd                                 5                                         all          JACK Audio Connection Kit (default server package)
 ii  jackd2                                1.9.10+20140719git3eb0ae6a~dfsg-2         armhf        JACK Audio Connection Kit (server and example clients)
 ii  java-common                           0.52                                      all          Base of all Java packages
+ii  javascript-common                     11                                        all          Base support for JavaScript library packages
 ii  kbd                                   1.15.5-2                                  armhf        Linux console font and keytable utilities
 ii  keyboard-configuration                1.123                                     all          system-wide keyboard preferences
+ii  keyutils                              1.5.9-5                                   armhf        Linux Key Management Utilities
 ii  klibc-utils                           2.0.4-2+rpi1                              armhf        small utilities built with klibc for early boot
 ii  kmod                                  18-3                                      armhf        tools for managing Linux kernel modules
 ii  krb5-locales                          1.12.1+dfsg-19+deb8u2                     all          Internationalization support for MIT Kerberos
+ii  leafpad                               0.8.18.1-4                                armhf        GTK+ based simple text editor
 ii  less                                  458-3                                     armhf        pager program similar to more
 ii  libaa1:armhf                          1.4p5-43                                  armhf        ASCII art library
 ii  libaacs0:armhf                        0.7.1-1+b1                                armhf        free-and-libre implementation of AACS
+ii  libabw-0.1-1                          0.1.0-2                                   armhf        library for reading and writing AbiWord(tm) documents
 ii  libacl1:armhf                         2.2.52-2                                  armhf        Access control list shared library
+ii  libaio1:armhf                         0.3.110-1                                 armhf        Linux kernel AIO access library - shared library
 ii  libalgorithm-c3-perl                  0.09-1                                    all          Perl module for merging hierarchies using the C3 algorithm
 ii  libalgorithm-diff-perl                1.19.02-3                                 all          module to find differences between files
 ii  libalgorithm-diff-xs-perl             0.04-3+b1                                 armhf        module to find differences between files (XS accelerated)
@@ -230,8 +245,10 @@ ii  libapt-pkg4.12:armhf                  1.0.9.8.4                             
 ii  libarchive-extract-perl               0.72-1                                    all          generic archive extracting module
 ii  libarchive13:armhf                    3.1.2-11+deb8u3                           armhf        Multi-format archive and compression library (shared library)
 ii  libasan1:armhf                        4.9.2-10                                  armhf        AddressSanitizer -- a fast memory error detector
+ii  libasn1-8-heimdal:armhf               1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - ASN.1 library
 ii  libasound2:armhf                      1.0.28-1+rpi1                             armhf        shared library for ALSA applications
 ii  libasound2-data                       1.0.28-1+rpi1                             all          Configuration files and profiles for ALSA drivers
+ii  libasound2-plugins:armhf              1.0.28-1+b1                               armhf        ALSA library additional plugins
 ii  libaspell15:armhf                     0.60.7~20110707-1.3                       armhf        GNU Aspell spell-checker runtime library
 ii  libasprintf0c2:armhf                  0.19.3-2                                  armhf        GNU library to use fprintf and friends in C++
 ii  libass5:armhf                         0.10.2-3                                  armhf        library for SSA/ASS subtitles rendering
@@ -247,12 +264,14 @@ ii  libatomic1:armhf                      4.9.2-10                              
 ii  libatspi2.0-0:armhf                   2.14.0-1                                  armhf        Assistive Technology Service Provider Interface - shared library
 ii  libattr1:armhf                        1:2.4.47-2                                armhf        Extended attribute shared library
 ii  libaudio2:armhf                       1.9.4-3                                   armhf        Network Audio System - shared libraries
+ii  libaudiofile1:armhf                   0.3.6-2+deb8u1                            armhf        Open-source version of SGI's audiofile library
 ii  libaudit-common                       1:2.4-1                                   all          Dynamic library for security auditing - common files
 ii  libaudit1:armhf                       1:2.4-1                                   armhf        Dynamic library for security auditing
 ii  libauthen-sasl-perl                   2.1600-1                                  all          Authen::SASL - SASL Authentication framework
 ii  libavahi-client3:armhf                0.6.31-5                                  armhf        Avahi client library
 ii  libavahi-common-data:armhf            0.6.31-5                                  armhf        Avahi common data files
 ii  libavahi-common3:armhf                0.6.31-5                                  armhf        Avahi common library
+ii  libavahi-core7:armhf                  0.6.31-5                                  armhf        Avahi's embeddable mDNS/DNS-SD library
 ii  libavahi-glib1:armhf                  0.6.31-5                                  armhf        Avahi GLib integration library
 ii  libavc1394-0:armhf                    0.5.4-2                                   armhf        control IEEE 1394 audio/video devices
 ii  libavcodec56:armhf                    6:11.8-1~deb8u1+rpi1                      armhf        Libav codec library
@@ -432,6 +451,9 @@ ii  libgtop2-common                       2.28.5-2                              
 ii  libgudev-1.0-0:armhf                  215-17+deb8u5                             armhf        GObject-based wrapper library for libudev
 ii  libgusb2:armhf                        0.1.6-5                                   armhf        GLib wrapper around libusb1
 ii  libharfbuzz0b:armhf                   0.9.35-2                                  armhf        OpenType text shaping engine (shared library)
+ii  libhcrypto4-heimdal:armhf             1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - crypto library
+ii  libhdb9-heimdal:armhf                 1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - kadmin server library
+ii  libheimbase1-heimdal:armhf            1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - Base library
 ii  libhogweed2:armhf                     2.7.1-5+deb8u1                            armhf        low level cryptographic library (public-key cryptos)
 ii  libhtml-form-perl                     6.03-1                                    all          module that represents an HTML form element
 ii  libhtml-format-perl                   2.11-1                                    all          module for transforming HTML into various formats
@@ -444,6 +466,7 @@ ii  libhttp-date-perl                     6.02-1                                
 ii  libhttp-message-perl                  6.06-1                                    all          perl interface to HTTP style messages
 ii  libhttp-negotiate-perl                6.00-2                                    all          implementation of content negotiation
 ii  libhunspell-1.3-0:armhf               1.3.3-3                                   armhf        spell checker and morphological analyzer (shared library)
+ii  libhx509-5-heimdal:armhf              1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - X509 support library
 ii  libice-dev:armhf                      2:1.0.9-1                                 armhf        X11 Inter-Client Exchange library (development headers)
 ii  libice6:armhf                         2:1.0.9-1                                 armhf        X11 Inter-Client Exchange library
 ii  libicu52:armhf                        52.1-8+deb8u4                             armhf        International Components for Unicode
@@ -477,6 +500,7 @@ ii  libkate1                              0.4.1-4                               
 ii  libkeyutils1:armhf                    1.5.9-5                                   armhf        Linux Key Management Utilities (library)
 ii  libklibc                              2.0.4-2+rpi1                              armhf        minimal libc subset for use with initramfs
 ii  libkmod2:armhf                        18-3                                      armhf        libkmod shared library
+ii  libkrb5-26-heimdal:armhf              1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - libraries
 ii  libkrb5-3:armhf                       1.12.1+dfsg-19+deb8u2                     armhf        MIT Kerberos runtime libraries
 ii  libkrb5support0:armhf                 1.12.1+dfsg-19+deb8u2                     armhf        MIT Kerberos runtime libraries - Support library
 ii  libksba8:armhf                        1.3.2-1+deb8u1                            armhf        X.509 and CMS support library
@@ -534,6 +558,7 @@ ii  libnih1                               1.0.3-4.3                             
 ii  libnl-3-200:armhf                     3.2.24-2                                  armhf        library for dealing with netlink sockets
 ii  libnl-genl-3-200:armhf                3.2.24-2                                  armhf        library for dealing with netlink sockets - generic netlink
 ii  libnspr4:armhf                        2:4.12-1+debu8u1                          armhf        NetScape Portable Runtime Library
+ii  libnss-mdns:armhf                     0.10-6                                    armhf        NSS module for Multicast DNS name resolution
 ii  libnss3:armhf                         2:3.26-1+debu8u1                          armhf        Network Security Service libraries
 ii  libntdb1:armhf                        1.0-5                                     armhf        New Trivial Database - shared library
 ii  libofa0                               0.9.3-7                                   armhf        Library for acoustic fingerprinting
@@ -608,6 +633,8 @@ ii  libraw1394-11:armhf                   2.1.0-3                               
 ii  libreadline6:armhf                    6.3-8                                     armhf        GNU readline and history libraries, run-time libraries
 ii  libregexp-common-perl                 2013031301-1                              all          module with common regular expressions
 ii  librest-0.7-0:armhf                   0.7.92-3                                  armhf        REST service access library
+ii  librevenge-0.0-0                      0.0.1-3                                   armhf        Base Library for writing document interface filters
+ii  libroken18-heimdal:armhf              1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - roken support library
 ii  librsvg2-2:armhf                      2.40.5-1+deb8u2                           armhf        SAX-based renderer library for SVG files (runtime)
 ii  librsvg2-common:armhf                 2.40.5-1+deb8u2                           armhf        SAX-based renderer library for SVG files (extra runtime)
 ii  librtmp1:armhf                        2.4+20150115.gita107cef-1                 armhf        toolkit for RTMP streams (shared library)
@@ -643,6 +670,7 @@ ii  libsoup-gnome2.4-1:armhf              2.48.0-1                              
 ii  libsoup2.4-1:armhf                    2.48.0-1                                  armhf        HTTP library implementation in C -- Shared library
 ii  libspandsp2:armhf                     0.0.6-2                                   armhf        Telephony signal processing library
 ii  libspeex1:armhf                       1.2~rc1.2-1                               armhf        The Speex codec runtime library
+ii  libspeexdsp1:armhf                    1.2~rc1.2-1                               armhf        The Speex extended runtime library
 ii  libsqlite3-0:armhf                    3.8.7.1-1+deb8u2                          armhf        SQLite 3 shared library
 ii  libsrtp0                              1.4.5~20130609~dfsg-1.1+deb8u1            armhf        Secure RTP (SRTP) and UST Reference Implementations - shared library
 ii  libss2:armhf                          1.42.12-2                                 armhf        command-line interface parsing library
@@ -708,6 +736,7 @@ ii  libwbclient0:armhf                    2:4.2.14+dfsg-0+deb8u2                
 ii  libwebp5:armhf                        0.4.1-1.2                                 armhf        Lossy compression of digital photographic images.
 ii  libwildmidi-config                    0.3.7-1                                   all          software MIDI player configuration
 ii  libwildmidi1:armhf                    0.3.7-1                                   armhf        software MIDI player library
+ii  libwind0-heimdal:armhf                1.6~rc2+dfsg-9+rpi1                       armhf        Heimdal Kerberos - stringprep implementation
 ii  libwrap0:armhf                        7.6.q-25                                  armhf        Wietse Venema's TCP wrappers library
 ii  libwww-perl                           6.08-1                                    all          simple and consistent interface to the world-wide web
 ii  libwww-robotrules-perl                6.01-1                                    all          database of robots.txt-derived permissions
@@ -822,12 +851,19 @@ ii  psmisc                                22.21-2                               
 ii  python                                2.7.9-1                                   armhf        interactive high-level object-oriented language (default version)
 ii  python-apt                            0.9.3.12                                  armhf        Python interface to libapt-pkg
 ii  python-apt-common                     0.9.3.12                                  all          Python interface to libapt-pkg (locales)
+ii  python-crypto                         2.6.1-5                                   armhf        cryptographic algorithms and protocols for Python
 ii  python-dbus                           1.2.0-2+b1                                armhf        simple interprocess messaging system (Python interface)
 ii  python-dbus-dev                       1.2.0-2                                   all          main loop integration development files for python-dbus
+ii  python-dnspython                      1.12.0-1                                  all          DNS toolkit for Python
 ii  python-gi                             3.14.0-1                                  armhf        Python 2.x bindings for gobject-introspection libraries
+ii  python-ldb                            2:1.1.20-0+deb8u1                         armhf        Python bindings for LDB
 ii  python-minimal                        2.7.9-1                                   armhf        minimal subset of the Python language (default version)
+ii  python-ntdb                           1.0-5                                     armhf        Python bindings for NTDB
+ii  python-samba                          2:4.2.14+dfsg-0+deb8u2                    armhf        Python bindings for Samba
 ii  python-support                        1.0.15                                    all          automated rebuilding support for Python modules
 ii  python-talloc                         2.1.2-0+deb8u1                            armhf        hierarchical pool based memory allocator - Python bindings
+ii  python-tdb                            1.3.6-0+deb8u1                            armhf        Python bindings for TDB
+ii  python-tk                             2.7.8-2                                   armhf        Tkinter - Writing Tk applications with Python
 ii  python2.7                             2.7.9-2+deb8u1                            armhf        Interactive high-level object-oriented language (version 2.7)
 ii  python2.7-minimal                     2.7.9-2+deb8u1                            armhf        Minimal subset of the Python language (version 2.7)
 ii  python3                               3.4.2-2                                   armhf        interactive high-level object-oriented language (default python3 version)
@@ -837,6 +873,7 @@ ii  python3-debian                        0.1.27                                
 ii  python3-minimal                       3.4.2-2                                   armhf        minimal subset of the Python language (default python3 version)
 ii  python3-pkg-resources                 5.5.1-1                                   all          Package Discovery and Resource Access using pkg_resources
 ii  python3-six                           1.8.0-1                                   all          Python 2 and 3 compatibility library (Python 3 interface)
+ii  python3-tk                            3.4.2-1                                   armhf        Tkinter - Writing Tk applications with Python 3.x
 ii  python3.4                             3.4.2-1                                   armhf        Interactive high-level object-oriented language (version 3.4)
 ii  python3.4-minimal                     3.4.2-1                                   armhf        Minimal subset of the Python language (version 3.4)
 ii  qdbus                                 4:4.8.6+git64-g5dc8b2b+dfsg-3+deb8u1+rpi1 armhf        Qt 4 D-Bus tool
@@ -851,7 +888,12 @@ ii  readline-common                       6.3-8                                 
 ii  rename                                0.20-3                                    all          Perl extension for renaming multiple files
 ii  rsync                                 3.1.1-3                                   armhf        fast, versatile, remote (and local) file-copying tool
 ii  rsyslog                               8.4.2-1+deb8u2                            armhf        reliable system and kernel logging daemon
+ii  samba                                 2:4.2.14+dfsg-0+deb8u2                    armhf        SMB/CIFS file, print, and login server for Unix
+ii  samba-common                          2:4.2.14+dfsg-0+deb8u2                    all          common files used by both the Samba server and client
+ii  samba-common-bin                      2:4.2.14+dfsg-0+deb8u2                    armhf        Samba common files used by both the server and the client
+ii  samba-dsdb-modules                    2:4.2.14+dfsg-0+deb8u2                    armhf        Samba Directory Services Database
 ii  samba-libs:armhf                      2:4.2.14+dfsg-0+deb8u2                    armhf        Samba core libraries
+ii  samba-vfs-modules                     2:4.2.14+dfsg-0+deb8u2                    armhf        Samba Virtual FileSystem plugins
 ii  sane-utils                            1.0.24-8+deb8u1                           armhf        API library for scanners -- utilities
 ii  sed                                   4.2.2-4                                   armhf        The GNU sed stream editor
 ii  sensible-utils                        0.0.9                                     all          Utilities for sensible alternative selection
@@ -867,6 +909,7 @@ ii  tar                                   1.27.1-2                              
 ii  tasksel                               3.31+deb8u1                               all          tool for selecting tasks for installation on Debian systems
 ii  tasksel-data                          3.31+deb8u1                               all          official tasks used for installation of Debian systems
 ii  tcpd                                  7.6.q-25                                  armhf        Wietse Venema's TCP wrapper utilities
+ii  tdb-tools                             1.3.6-0+deb8u1                            armhf        Trivial Database - bundled binaries
 ii  tk8.6-blt2.5                          2.5.3+dfsg-1                              armhf        graphics extension library for Tcl/Tk - library
 ii  traceroute                            1:2.0.20-2                                armhf        Traces the route taken by packets over an IPv4/IPv6 network
 ii  triggerhappy                          0.3.4-2                                   armhf        global hotkey daemon for Linux
@@ -884,6 +927,7 @@ ii  vim-common                            2:7.4.488-7+deb8u1                    
 ii  vim-tiny                              2:7.4.488-7+deb8u1                        armhf        Vi IMproved - enhanced vi editor - compact version
 ii  wget                                  1.16-1+deb8u1                             armhf        retrieves files from the web
 ii  whiptail                              0.52.17-1                                 armhf        Displays user-friendly dialog boxes from shell scripts
+iF  winbind                               2:4.2.14+dfsg-0+deb8u2                    armhf        service to resolve user and group information from Windows NT servers
 ii  wireless-regdb                        2014.11.18-1                              all          wireless regulatory database
 ii  wpasupplicant                         2.3-1+deb8u4                              armhf        client support for WPA and WPA2 (IEEE 802.11i)
 ii  x11-common                            1:7.7+7                                   all          X Window System (X.Org) infrastructure

@@ -80,9 +80,9 @@ exit
 
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
-apt-get install -y adwaita-icon-theme alacarte alsa-base aspell aspell-en aspell-it
+apt-get install -y avahi-daemon adwaita-icon-theme alacarte alsa-base aspell aspell-en aspell-it
 apt-get install -y bash-completion bind9-host binutils blt bluej bluez-firmware bluez build-essential
-apt-get install -y chromium-browser claws-mail coinor-libcoinmp1 crda cups-bsd curl
+apt-get install -y chromium-browser cifs-utils claws-mail coinor-libcoinmp1 crda cups-bsd curl
 apt-get install -y dc debconf-utils debian-reference-common debian-reference-en debian-reference-it
 apt-get install -y desktop-base desktop-file-utils device-tree-compiler dhcpcd5 dillo dosfstools dphys-swapfile
 apt-get install -y ed esound-common
@@ -96,12 +96,13 @@ apt-get install -y gnome-desktop3-data gnome-icon-theme gnome-icon-theme-symboli
 apt-get install -y greenfoot gsfonts gsfonts-x11 gstreamer0.10-alsa gstreamer0.10-plugins-base gstreamer1.0-alsa
 apt-get install -y gstreamer1.0-libav gstreamer1.0-omx gstreamer1.0-plugins-bad gstreamer1.0-plugins-good gtk2-engines
 apt-get install -y gtk2-engines-clearlookspix gvfs-backends gvfs-fuse
+apt-get install -y hardlink
+apt-get install -y i2c-tools idle idle3
+apt-get install -y javascript-common
+apt-get install -y leafpad libabw-0.1-1 libasound2-plugins libaudiofile1 libavahi-client3 libavahi-gobject0
 
 ########################################################################################################################
 
-apt-get install -y hardlink
-apt-get install -y idle idle3
-apt-get install -y java-common javascript-common
 apt-get install -y libglew1.10 libgif4 libimlib2 libmozjs185-1.0 libportaudio2
 apt-get install -y libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc lsb-release
 apt-get install -y module-init-tools
@@ -156,7 +157,6 @@ install -m 755 /root/config/home/pi/autostart/tightvnc.desktop \
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
 apt-get -y install lirc liblircclient-dev
-apt-get -y install -y avahi-daemon cifs-utils
 
 # Aggiunta dell'utente Pi ai gruppi
 groupadd -g 997 gpio

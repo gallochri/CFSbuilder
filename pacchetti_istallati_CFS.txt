@@ -180,14 +180,14 @@ gvfs-daemons                          1.22.2-1                                  
 gvfs-fuse                             1.22.2-1                                  armhf        userspace virtual filesystem - fuse server
 gvfs-libs:armhf                       1.22.2-1                                  armhf        userspace virtual filesystem - private libraries
 gzip                                  1.6-4                                     armhf        GNU compression utilities
-ii  hardlink                              0.3.0                                     armhf        Hardlinks multiple copies of the same file
+hardlink                              0.3.0                                     armhf        Hardlinks multiple copies of the same file
 hicolor-icon-theme                    0.13-1                                    all          default fallback theme for FreeDesktop.org icon themes
 hostname                              3.15                                      armhf        utility to set/show the host name or domain name
-ii  i2c-tools                             3.1.1+svn-2                               armhf        heterogeneous set of I2C tools for Linux
-ii  idle                                  2.7.9-1                                   all          IDE for Python using Tkinter (default version)
-ii  idle-python2.7                        2.7.9-2+deb8u1                            all          IDE for Python (v2.7) using Tkinter
-ii  idle-python3.4                        3.4.2-1                                   all          IDE for Python (v3.4) using Tkinter
-ii  idle3                                 3.4.2-2                                   all          IDE for Python using Tkinter (default version)
+i2c-tools                             3.1.1+svn-2                               armhf        heterogeneous set of I2C tools for Linux
+idle                                  2.7.9-1                                   all          IDE for Python using Tkinter (default version)
+idle-python2.7                        2.7.9-2+deb8u1                            all          IDE for Python (v2.7) using Tkinter
+idle-python3.4                        3.4.2-1                                   all          IDE for Python (v3.4) using Tkinter
+idle3                                 3.4.2-2                                   all          IDE for Python using Tkinter (default version)
 ifupdown                              0.7.53.1                                  armhf        high level tools to configure network interfaces
 info                                  5.2.0.dfsg.1-6                            armhf        Standalone GNU Info documentation browser
 init                                  1.22                                      armhf        System-V-like init utilities - metapackage
@@ -202,63 +202,63 @@ iputils-ping                          3:20121221-5                              
 isc-dhcp-client                       4.3.1-6+deb8u2                            armhf        DHCP client for automatically obtaining an IP address
 isc-dhcp-common                       4.3.1-6+deb8u2                            armhf        common files used by all of the isc-dhcp packages
 iso-codes                             3.57-1                                    all          ISO language, territory, currency, script codes and their translations
-ii  iw                                    3.17-1                                    armhf        tool for configuring Linux wireless devices
+iw                                    3.17-1                                    armhf        tool for configuring Linux wireless devices
 jackd                                 5                                         all          JACK Audio Connection Kit (default server package)
 jackd2                                1.9.10+20140719git3eb0ae6a~dfsg-2         armhf        JACK Audio Connection Kit (server and example clients)
-ii  java-common                           0.52                                      all          Base of all Java packages
-ii  javascript-common                     11                                        all          Base support for JavaScript library packages
+java-common                           0.52                                      all          Base of all Java packages
+javascript-common                     11                                        all          Base support for JavaScript library packages
 kbd                                   1.15.5-2                                  armhf        Linux console font and keytable utilities
 keyboard-configuration                1.123                                     all          system-wide keyboard preferences
 klibc-utils                           2.0.4-2+rpi1                              armhf        small utilities built with klibc for early boot
 kmod                                  18-3                                      armhf        tools for managing Linux kernel modules
-ii  leafpad                               0.8.18.1-4                                armhf        GTK+ based simple text editor
+leafpad                               0.8.18.1-4                                armhf        GTK+ based simple text editor
 less                                  458-3                                     armhf        pager program similar to more
-ii  libaa1:armhf                          1.4p5-43                                  armhf        ASCII art library
-ii  libabw-0.1-1                          0.1.0-2                                   armhf        library for reading and writing AbiWord(tm) documents
+libaa1:armhf                          1.4p5-43                                  armhf        ASCII art library
+libabw-0.1-1                          0.1.0-2                                   armhf        library for reading and writing AbiWord(tm) documents
 libacl1:armhf                         2.2.52-2                                  armhf        Access control list shared library
 libalgorithm-c3-perl                  0.09-1                                    all          Perl module for merging hierarchies using the C3 algorithm
-ii  libalgorithm-diff-perl                1.19.02-3                                 all          module to find differences between files
-ii  libalgorithm-diff-xs-perl             0.04-3+b1                                 armhf        module to find differences between files (XS accelerated)
-ii  libalgorithm-merge-perl               0.08-2                                    all          Perl module for three-way merge of textual data
+libalgorithm-diff-perl                1.19.02-3                                 all          module to find differences between files
+libalgorithm-diff-xs-perl             0.04-3+b1                                 armhf        module to find differences between files (XS accelerated)
+libalgorithm-merge-perl               0.08-2                                    all          Perl module for three-way merge of textual data
 libapt-inst1.5:armhf                  1.0.9.8.4                                 armhf        deb package format runtime library
 libapt-pkg4.12:armhf                  1.0.9.8.4                                 armhf        package management runtime library
 libarchive-extract-perl               0.72-1                                    all          generic archive extracting module
-ii  libarchive13:armhf                    3.1.2-11+deb8u3                           armhf        Multi-format archive and compression library (shared library)
-ii  libasan1:armhf                        4.9.2-10                                  armhf        AddressSanitizer -- a fast memory error detector
+libarchive13:armhf                    3.1.2-11+deb8u3                           armhf        Multi-format archive and compression library (shared library)
+libasan1:armhf                        4.9.2-10                                  armhf        AddressSanitizer -- a fast memory error detector
 libasound2:armhf                      1.0.28-1+rpi1                             armhf        shared library for ALSA applications
 libasound2-data                       1.0.28-1+rpi1                             all          Configuration files and profiles for ALSA drivers
-ii  libasound2-plugins:armhf              1.0.28-1+b1                               armhf        ALSA library additional plugins
-ii  libaspell15:armhf                     0.60.7~20110707-1.3                       armhf        GNU Aspell spell-checker runtime library
-ii  libasprintf0c2:armhf                  0.19.3-2                                  armhf        GNU library to use fprintf and friends in C++
-ii  libass5:armhf                         0.10.2-3                                  armhf        library for SSA/ASS subtitles rendering
-ii  libassuan0:armhf                      2.1.2-2                                   armhf        IPC library for the GnuPG components
-ii  libasyncns0:armhf                     0.8-5                                     armhf        Asynchronous name service query library
-ii  libatasmart4:armhf                    0.19-3                                    armhf        ATA S.M.A.R.T. reading and parsing library
-ii  libatk-bridge2.0-0:armhf              2.14.0-2                                  armhf        AT-SPI 2 toolkit bridge - shared library
-ii  libatk1.0-0:armhf                     2.14.0-1                                  armhf        ATK accessibility toolkit
-ii  libatk1.0-data                        2.14.0-1                                  all          Common files for the ATK accessibility toolkit
-ii  libatomic1:armhf                      4.9.2-10                                  armhf        support library providing __atomic built-in functions
-ii  libatspi2.0-0:armhf                   2.14.0-1                                  armhf        Assistive Technology Service Provider Interface - shared library
+libasound2-plugins:armhf              1.0.28-1+b1                               armhf        ALSA library additional plugins
+libaspell15:armhf                     0.60.7~20110707-1.3                       armhf        GNU Aspell spell-checker runtime library
+libasprintf0c2:armhf                  0.19.3-2                                  armhf        GNU library to use fprintf and friends in C++
+libass5:armhf                         0.10.2-3                                  armhf        library for SSA/ASS subtitles rendering
+libassuan0:armhf                      2.1.2-2                                   armhf        IPC library for the GnuPG components
+libasyncns0:armhf                     0.8-5                                     armhf        Asynchronous name service query library
+libatasmart4:armhf                    0.19-3                                    armhf        ATA S.M.A.R.T. reading and parsing library
+libatk-bridge2.0-0:armhf              2.14.0-2                                  armhf        AT-SPI 2 toolkit bridge - shared library
+libatk1.0-0:armhf                     2.14.0-1                                  armhf        ATK accessibility toolkit
+libatk1.0-data                        2.14.0-1                                  all          Common files for the ATK accessibility toolkit
+libatomic1:armhf                      4.9.2-10                                  armhf        support library providing __atomic built-in functions
+libatspi2.0-0:armhf                   2.14.0-1                                  armhf        Assistive Technology Service Provider Interface - shared library
 libattr1:armhf                        1:2.4.47-2                                armhf        Extended attribute shared library
-ii  libaudio2:armhf                       1.9.4-3                                   armhf        Network Audio System - shared libraries
-ii  libaudiofile1:armhf                   0.3.6-2+deb8u1                            armhf        Open-source version of SGI's audiofile library
-ii  libaudit-common                       1:2.4-1                                   all          Dynamic library for security auditing - common files
-ii  libaudit1:armhf                       1:2.4-1                                   armhf        Dynamic library for security auditing
-ii  libavahi-client3:armhf                0.6.31-5                                  armhf        Avahi client library
-ii  libavahi-common-data:armhf            0.6.31-5                                  armhf        Avahi common data files
-ii  libavahi-common3:armhf                0.6.31-5                                  armhf        Avahi common library
+libaudio2:armhf                       1.9.4-3                                   armhf        Network Audio System - shared libraries
+libaudiofile1:armhf                   0.3.6-2+deb8u1                            armhf        Open-source version of SGI's audiofile library
+libaudit-common                       1:2.4-1                                   all          Dynamic library for security auditing - common files
+libaudit1:armhf                       1:2.4-1                                   armhf        Dynamic library for security auditing
+libavahi-client3:armhf                0.6.31-5                                  armhf        Avahi client library
+libavahi-common-data:armhf            0.6.31-5                                  armhf        Avahi common data files
+libavahi-common3:armhf                0.6.31-5                                  armhf        Avahi common library
 ii  libavahi-core7:armhf                  0.6.31-5                                  armhf        Avahi's embeddable mDNS/DNS-SD library
-ii  libavahi-glib1:armhf                  0.6.31-5                                  armhf        Avahi GLib integration library
+libavahi-glib1:armhf                  0.6.31-5                                  armhf        Avahi GLib integration library
 ii  libavahi-gobject0:armhf               0.6.31-5                                  armhf        Avahi GObject library
-ii  libavc1394-0:armhf                    0.5.4-2                                   armhf        control IEEE 1394 audio/video devices
-ii  libavcodec56:armhf                    6:11.8-1~deb8u1+rpi1                      armhf        Libav codec library
-ii  libavformat56:armhf                   6:11.8-1~deb8u1+rpi1                      armhf        Libav file format library
-ii  libavresample2:armhf                  6:11.8-1~deb8u1+rpi1                      armhf        Libav audio resampling library
-ii  libavutil54:armhf                     6:11.8-1~deb8u1+rpi1                      armhf        Libav utility library
-ii  libbind9-90                           1:9.9.5.dfsg-9+deb8u8                     armhf        BIND9 Shared Library used by BIND
-ii  libblas-common                        1.2.20110419-10                           armhf        Dependency package for all BLAS implementations
-ii  libblas3                              1.2.20110419-10                           armhf        Basic Linear Algebra Reference implementations, shared library
-ii  libblkid1:armhf                       2.25.2-6                                  armhf        block device id library
+libavc1394-0:armhf                    0.5.4-2                                   armhf        control IEEE 1394 audio/video devices
+libavcodec56:armhf                    6:11.8-1~deb8u1+rpi1                      armhf        Libav codec library
+libavformat56:armhf                   6:11.8-1~deb8u1+rpi1                      armhf        Libav file format library
+libavresample2:armhf                  6:11.8-1~deb8u1+rpi1                      armhf        Libav audio resampling library
+libavutil54:armhf                     6:11.8-1~deb8u1+rpi1                      armhf        Libav utility library
+libbind9-90                           1:9.9.5.dfsg-9+deb8u8                     armhf        BIND9 Shared Library used by BIND
+libblas-common                        1.2.20110419-10                           armhf        Dependency package for all BLAS implementations
+libblas3                              1.2.20110419-10                           armhf        Basic Linear Algebra Reference implementations, shared library
+libblkid1:armhf                       2.25.2-6                                  armhf        block device id library
 ii  libbluetooth3:armhf                   5.23-2+rpi2                               armhf        Library to use the BlueZ Linux Bluetooth stack
 ii  libbluray1:armhf                      1:0.6.2-1                                 armhf        Blu-ray disc playback support library (shared library)
 ii  libboost-atomic1.55.0:armhf           1.55.0+dfsg-3                             armhf        atomic data types, operations, and memory ordering constraints
