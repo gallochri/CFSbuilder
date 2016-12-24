@@ -71,15 +71,23 @@ cp -r /root/config/etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/
 apt-get install -y openssh-server patch rsync raspi-config usbmount
 
 #Regole udev
-cp -r /root/config/etc/udev/rules.d/* /etc/udev/rules.d/
+cp -r /root/config/etc/udev/* /etc/udev/
 
 #Moduli da caricare al boot
 cp -r /root/config/etc/modules /etc/modules
 
+exit
+
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
-apt-get install -y bash-completion binutils blt build-essential
-apt-get install -y ca-certificates cryptsetup-bin cups-bsd curl
+apt-get install -y adwaita-icon-theme alacarte alsa-base aspell aspell-en aspell-it
+
+
+
+
+apt-get install -y bash-completion bind9-host binutils blt bluej bluez-firmware bluez build-essential bzip2
+apt-get install -y ca-certificates chromium-browser claws-mail claws-mail-i18n coinor-libcoinmp1:armhf
+apt-get install -y cryptsetup-bin cups-bsd curl
 apt-get install -y dbus-x11 dc dconf-gsettings-backend debconf-utils dhcpcd5
 apt-get install -y ed eject esound-common
 echo "##########Pacchetti F-M###########"
@@ -143,11 +151,8 @@ install -m 755 -o pi /root/config/home/pi/autostart/autotightvnc.desktop \
 install -m 755 /root/config/home/pi/autostart/tightvnc.desktop \
         /usr/share/applications
 
-#TODO Non c'è più chromium per raspberry, consuma troppa ram
-#apt-get -y install chromium-browser
 apt-get -y install geogebra
 update-alternatives --set java /usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/bin/java
-apt-get -y install iceweasel iceweasel-l10n-it
 apt-get -y install lirc liblircclient-dev
 apt-get -y install -y avahi-daemon cifs-utils
 
