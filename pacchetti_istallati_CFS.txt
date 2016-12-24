@@ -20,168 +20,168 @@ ii  avahi-daemon                          0.6.31-5                              
 base-files                            8+rpi1                                    armhf        Debian base system miscellaneous files
 base-passwd                           3.5.37                                    armhf        Debian base system master password and group files
 bash                                  4.3-11                                    armhf        GNU Bourne Again SHell
-ii  bash-completion                       1:2.1-4                                   all          programmable completion for the bash shell
-ii  bind9-host                            1:9.9.5.dfsg-9+deb8u8                     armhf        Version of 'host' bundled with BIND 9.X
-ii  binutils                              2.25-5                                    armhf        GNU assembler, linker and binary utilities
-ii  blt                                   2.5.3+dfsg-1                              armhf        graphics extension library for Tcl/Tk - run-time
-ii  bluej                                 3.1.7b                                    all          A simple but powerful Java IDE.
-ii  bluez                                 5.23-2+rpi2                               armhf        Bluetooth tools and daemons
-ii  bluez-firmware                        1.2-3+rpi1                                all          Firmware for Bluetooth devices
+bash-completion                       1:2.1-4                                   all          programmable completion for the bash shell
+bind9-host                            1:9.9.5.dfsg-9+deb8u8                     armhf        Version of 'host' bundled with BIND 9.X
+binutils                              2.25-5                                    armhf        GNU assembler, linker and binary utilities
+blt                                   2.5.3+dfsg-1                              armhf        graphics extension library for Tcl/Tk - run-time
+bluej                                 3.1.7b                                    all          A simple but powerful Java IDE.
+bluez                                 5.23-2+rpi2                               armhf        Bluetooth tools and daemons
+bluez-firmware                        1.2-3+rpi1                                all          Firmware for Bluetooth devices
 bsdmainutils                          9.0.6                                     armhf        collection of more utilities from FreeBSD
 bsdutils                              1:2.25.2-6                                armhf        basic utilities from 4.4BSD-Lite
-ii  build-essential                       11.7                                      armhf        Informational list of build-essential packages
-ii  bzip2                                 1.0.6-7                                   armhf        high-quality block-sorting file compressor - utilities
-ii  ca-certificates                       20141019+deb8u1                           all          Common CA certificates
-ii  chromium-browser                      51.0.2704.91-0ubuntu0.14.04.1.7015        armhf        Chromium web browser, open-source version of Chrome
+build-essential                       11.7                                      armhf        Informational list of build-essential packages
+bzip2                                 1.0.6-7                                   armhf        high-quality block-sorting file compressor - utilities
+ca-certificates                       20141019+deb8u1                           all          Common CA certificates
+chromium-browser                      51.0.2704.91-0ubuntu0.14.04.1.7015        armhf        Chromium web browser, open-source version of Chrome
 ii  cifs-utils                            2:6.4-1                                   armhf        Common Internet File System utilities
-ii  claws-mail                            3.11.1-3+deb8u1                           armhf        Fast, lightweight and user-friendly GTK+2 based email client
-ii  claws-mail-i18n                       3.11.1-3+deb8u1                           all          Locale data for Claws Mail (i18n support)
-ii  coinor-libcbc3                        2.8.12-1                                  armhf        Coin-or branch-and-cut mixed integer programming solver (shared libraries)
-ii  coinor-libcgl1                        0.58.9-1                                  armhf        COIN-OR Cut Generation Library
-ii  coinor-libclp1                        1.15.10-1                                 armhf        Coin-or linear programming solver (shared libraries)
-ii  coinor-libcoinmp1:armhf               1.7.6+dfsg1-1                             armhf        Simple C API for COIN-OR Solvers Clp and Cbc -- library
-ii  coinor-libcoinutils3                  2.9.15-3                                  armhf        Coin-or collection of utility classes (binaries and libraries)
-ii  coinor-libosi1                        0.106.9-1                                 armhf        COIN-OR Open Solver Interface
+claws-mail                            3.11.1-3+deb8u1                           armhf        Fast, lightweight and user-friendly GTK+2 based email client
+claws-mail-i18n                       3.11.1-3+deb8u1                           all          Locale data for Claws Mail (i18n support)
+coinor-libcbc3                        2.8.12-1                                  armhf        Coin-or branch-and-cut mixed integer programming solver (shared libraries)
+coinor-libcgl1                        0.58.9-1                                  armhf        COIN-OR Cut Generation Library
+coinor-libclp1                        1.15.10-1                                 armhf        Coin-or linear programming solver (shared libraries)
+coinor-libcoinmp1:armhf               1.7.6+dfsg1-1                             armhf        Simple C API for COIN-OR Solvers Clp and Cbc -- library
+coinor-libcoinutils3                  2.9.15-3                                  armhf        Coin-or collection of utility classes (binaries and libraries)
+coinor-libosi1                        0.106.9-1                                 armhf        COIN-OR Open Solver Interface
 console-setup                         1.123                                     all          console font and keymap setup program
 console-setup-linux                   1.123                                     all          Linux specific part of console-setup
 coreutils                             8.23-4                                    armhf        GNU core utilities
 cpio                                  2.11+dfsg-4.1+deb8u1                      armhf        GNU cpio -- a program to manage archives of files
-ii  cpp                                   4:4.9.2-2                                 armhf        GNU C preprocessor (cpp)
-ii  cpp-4.9                               4.9.2-10                                  armhf        GNU C preprocessor
-ii  crda                                  3.13-1                                    armhf        wireless Central Regulatory Domain Agent
+cpp                                   4:4.9.2-2                                 armhf        GNU C preprocessor (cpp)
+cpp-4.9                               4.9.2-10                                  armhf        GNU C preprocessor
+crda                                  3.13-1                                    armhf        wireless Central Regulatory Domain Agent
 cron                                  3.0pl1-127+deb8u1                         armhf        process scheduling daemon
-ii  cups-bsd                              1.7.5-11+deb8u1                           armhf        Common UNIX Printing System(tm) - BSD commands
-ii  cups-client                           1.7.5-11+deb8u1                           armhf        Common UNIX Printing System(tm) - client programs (SysV)
-ii  cups-common                           1.7.5-11+deb8u1                           all          Common UNIX Printing System(tm) - common files
-ii  curl                                  7.38.0-4+deb8u5                           armhf        command line tool for transferring data with URL syntax
+cups-bsd                              1.7.5-11+deb8u1                           armhf        Common UNIX Printing System(tm) - BSD commands
+cups-client                           1.7.5-11+deb8u1                           armhf        Common UNIX Printing System(tm) - client programs (SysV)
+cups-common                           1.7.5-11+deb8u1                           all          Common UNIX Printing System(tm) - common files
+curl                                  7.38.0-4+deb8u5                           armhf        command line tool for transferring data with URL syntax
 dash                                  0.5.7-4                                   armhf        POSIX-compliant shell
-ii  dbus                                  1.8.20-0+deb8u1                           armhf        simple interprocess messaging system (daemon and utilities)
-ii  dbus-x11                              1.8.20-0+deb8u1                           armhf        simple interprocess messaging system (X11 deps)
-ii  dc                                    1.06.95-9                                 armhf        GNU dc arbitrary precision reverse-polish calculator
-ii  dconf-gsettings-backend:armhf         0.22.0-1                                  armhf        simple configuration storage system - GSettings back-end
-ii  dconf-service                         0.22.0-1                                  armhf        simple configuration storage system - D-Bus service
+dbus                                  1.8.20-0+deb8u1                           armhf        simple interprocess messaging system (daemon and utilities)
+dbus-x11                              1.8.20-0+deb8u1                           armhf        simple interprocess messaging system (X11 deps)
+dc                                    1.06.95-9                                 armhf        GNU dc arbitrary precision reverse-polish calculator
+dconf-gsettings-backend:armhf         0.22.0-1                                  armhf        simple configuration storage system - GSettings back-end
+dconf-service                         0.22.0-1                                  armhf        simple configuration storage system - D-Bus service
 debconf                               1.5.56                                    all          Debian configuration management system
 debconf-i18n                          1.5.56                                    all          full internationalization support for debconf
-ii  debconf-utils                         1.5.56                                    all          debconf utilities
-ii  debian-reference-common               2.58                                      all          Debian system administration guide, common files
-ii  debian-reference-en                   2.58                                      all          Debian system administration guide, English original
+debconf-utils                         1.5.56                                    all          debconf utilities
+debian-reference-common               2.58                                      all          Debian system administration guide, common files
+debian-reference-en                   2.58                                      all          Debian system administration guide, English original
 debianutils                           4.4                                       armhf        Miscellaneous utilities specific to Debian
-ii  desktop-base                          8.0.2                                     all          common files for the Debian Desktop
-ii  desktop-file-utils                    0.22-1                                    armhf        Utilities for .desktop files
-ii  device-tree-compiler                  1.4.1-1+rpi1                              armhf        Device Tree Compiler for Flat Device Trees
-ii  dh-python                             1.20141111-2                              all          Debian helper tools for packaging Python libraries and applications
-ii  dhcpcd5                               6.7.1-1+rpi5                              armhf        DHCPv4, IPv6RA and DHCPv6 client with IPv4LL support
-ii  dictionaries-common                   1.23.17                                   all          spelling dictionaries - common utilities
+desktop-base                          8.0.2                                     all          common files for the Debian Desktop
+desktop-file-utils                    0.22-1                                    armhf        Utilities for .desktop files
+device-tree-compiler                  1.4.1-1+rpi1                              armhf        Device Tree Compiler for Flat Device Trees
+dh-python                             1.20141111-2                              all          Debian helper tools for packaging Python libraries and applications
+dhcpcd5                               6.7.1-1+rpi5                              armhf        DHCPv4, IPv6RA and DHCPv6 client with IPv4LL support
+dictionaries-common                   1.23.17                                   all          spelling dictionaries - common utilities
 diffutils                             1:3.3-1                                   armhf        File comparison utilities
-ii  dillo                                 3.0.4-2+b1                                armhf        Small and fast web browser
+dillo                                 3.0.4-2+b1                                armhf        Small and fast web browser
 dmidecode                             2.12-3                                    armhf        SMBIOS/DMI table decoder
 dmsetup                               2:1.02.90-2.2+deb8u1                      armhf        Linux Kernel Device Mapper userspace library
-ii  dosfstools                            3.0.27-1                                  armhf        utilities for making and checking MS-DOS FAT filesystems
-ii  dphys-swapfile                        20100506-1                                all          Autogenerate and use a swap file
+dosfstools                            3.0.27-1                                  armhf        utilities for making and checking MS-DOS FAT filesystems
+dphys-swapfile                        20100506-1                                all          Autogenerate and use a swap file
 dpkg                                  1.17.27                                   armhf        Debian package management system
-ii  dpkg-dev                              1.17.27                                   all          Debian package development tools
+dpkg-dev                              1.17.27                                   all          Debian package development tools
 e2fslibs:armhf                        1.42.12-2                                 armhf        ext2/ext3/ext4 file system libraries
 e2fsprogs                             1.42.12-2                                 armhf        ext2/ext3/ext4 file system utilities
-ii  ed                                    1.10-2                                    armhf        classic UNIX line editor
-ii  emacsen-common                        2.0.8                                     all          Common facilities for all emacsen
+ed                                    1.10-2                                    armhf        classic UNIX line editor
+emacsen-common                        2.0.8                                     all          Common facilities for all emacsen
 ii  epiphany-browser                      1:3.8.2.0-0rpi27rpi1g                     armhf        Intuitive GNOME web browser
 ii  epiphany-browser-data                 1:3.8.2.0-0rpi27rpi1g                     all          Data files for the GNOME web browser
-ii  esound-common                         0.2.41-11                                 all          Enlightened Sound Daemon - Common files
-ii  fake-hwclock                          0.9                                       all          Save/restore system clock on machines without working RTC hardware
-ii  fakeroot                              1.20.2-1                                  armhf        tool for simulating superuser privileges
-ii  fbset                                 2.1-28                                    armhf        framebuffer device maintenance program
+esound-common                         0.2.41-11                                 all          Enlightened Sound Daemon - Common files
+fake-hwclock                          0.9                                       all          Save/restore system clock on machines without working RTC hardware
+fakeroot                              1.20.2-1                                  armhf        tool for simulating superuser privileges
+fbset                                 2.1-28                                    armhf        framebuffer device maintenance program
 file                                  1:5.22+15-2+deb8u2                        armhf        Determines file type using "magic" numbers
 findutils                             4.4.2-9                                   armhf        utilities for finding files--find, xargs
-ii  firmware-atheros                      0.43+rpi5                                 all          Binary firmware for Atheros wireless cards
-ii  firmware-brcm80211                    0.43+rpi5                                 all          Binary firmware for Broadcom 802.11 wireless cards
-ii  firmware-libertas                     0.43+rpi5                                 all          Binary firmware for Marvell Libertas 8xxx wireless cards
-ii  firmware-ralink                       0.43+rpi5                                 all          Binary firmware for Ralink wireless cards
-ii  firmware-realtek                      0.43+rpi5                                 all          Binary firmware for Realtek wired and wireless network adapters
+firmware-atheros                      0.43+rpi5                                 all          Binary firmware for Atheros wireless cards
+firmware-brcm80211                    0.43+rpi5                                 all          Binary firmware for Broadcom 802.11 wireless cards
+firmware-libertas                     0.43+rpi5                                 all          Binary firmware for Marvell Libertas 8xxx wireless cards
+firmware-ralink                       0.43+rpi5                                 all          Binary firmware for Ralink wireless cards
+firmware-realtek                      0.43+rpi5                                 all          Binary firmware for Realtek wired and wireless network adapters
 fontconfig                            2.11.0-6.3+deb8u1                         armhf        generic font configuration library - support binaries
 fontconfig-config                     2.11.0-6.3+deb8u1                         all          generic font configuration library - configuration
-ii  fontconfig-infinality                 20130104-0ubuntu0ppa1+rpi                 all          Packages up http://www.infinality.net/fedora/linux/zips/fontconfig-infinality-1-20130104_1.tar.bz2
-ii  fonts-dejavu                          2.34-1                                    all          metapackage to pull in fonts-dejavu-core and fonts-dejavu-extra
+fontconfig-infinality                 20130104-0ubuntu0ppa1+rpi                 all          Packages up http://www.infinality.net/fedora/linux/zips/fontconfig-infinality-1-20130104_1.tar.bz2
+fonts-dejavu                          2.34-1                                    all          metapackage to pull in fonts-dejavu-core and fonts-dejavu-extra
 fonts-dejavu-core                     2.34-1                                    all          Vera font family derivate with additional characters
-ii  fonts-dejavu-extra                    2.34-1                                    all          Vera font family derivate with additional characters (extra variants)
-ii  fonts-droid                           1:4.4.4r2-6+rpi1                          all          handheld device font with extensive style and language support
-ii  fonts-freefont-ttf                    20120503-4                                all          Freefont Serif, Sans and Mono Truetype fonts
-ii  fonts-opensymbol                      2:102.6+LibO4.3.3-2+rpi4                  all          OpenSymbol TrueType font
-ii  fonts-roboto                          1:4.4.4r2-6+rpi1                          all          sans-serif font family released with Android Ice Cream Sandwich
-ii  fonts-sil-gentium-basic               1.1-7                                     all          smart Unicode font families (Basic and Book Basic) based on Gentium
-ii  freepats                              20060219-1                                all          Free patch set for MIDI audio synthesis
-ii  fuse                                  2.9.3-15+deb8u2                           armhf        Filesystem in Userspace
-ii  g++                                   4:4.9.2-2                                 armhf        GNU C++ compiler
-ii  g++-4.9                               4.9.2-10                                  armhf        GNU C++ compiler
-ii  galculator                            2.1.3-1                                   armhf        scientific calculator
-ii  gcc                                   4:4.9.2-2                                 armhf        GNU C compiler
+fonts-dejavu-extra                    2.34-1                                    all          Vera font family derivate with additional characters (extra variants)
+fonts-droid                           1:4.4.4r2-6+rpi1                          all          handheld device font with extensive style and language support
+fonts-freefont-ttf                    20120503-4                                all          Freefont Serif, Sans and Mono Truetype fonts
+fonts-opensymbol                      2:102.6+LibO4.3.3-2+rpi4                  all          OpenSymbol TrueType font
+fonts-roboto                          1:4.4.4r2-6+rpi1                          all          sans-serif font family released with Android Ice Cream Sandwich
+fonts-sil-gentium-basic               1.1-7                                     all          smart Unicode font families (Basic and Book Basic) based on Gentium
+freepats                              20060219-1                                all          Free patch set for MIDI audio synthesis
+fuse                                  2.9.3-15+deb8u2                           armhf        Filesystem in Userspace
+g++                                   4:4.9.2-2                                 armhf        GNU C++ compiler
+g++-4.9                               4.9.2-10                                  armhf        GNU C++ compiler
+galculator                            2.1.3-1                                   armhf        scientific calculator
+gcc                                   4:4.9.2-2                                 armhf        GNU C compiler
 gcc-4.6-base:armhf                    4.6.4-5+rpi1                              armhf        GCC, the GNU Compiler Collection (base package)
 gcc-4.7-base:armhf                    4.7.3-11+rpi1                             armhf        GCC, the GNU Compiler Collection (base package)
 gcc-4.8-base:armhf                    4.8.4-1                                   armhf        GCC, the GNU Compiler Collection (base package)
-ii  gcc-4.9                               4.9.2-10                                  armhf        GNU C compiler
+gcc-4.9                               4.9.2-10                                  armhf        GNU C compiler
 gcc-4.9-base:armhf                    4.9.2-10                                  armhf        GCC, the GNU Compiler Collection (base package)
-ii  gconf-service                         3.2.6-3                                   armhf        GNOME configuration database system (D-Bus service)
-ii  gconf2                                3.2.6-3                                   armhf        GNOME configuration database system (support tools)
-ii  gconf2-common                         3.2.6-3                                   all          GNOME configuration database system (common files)
-ii  gdb                                   7.7.1+dfsg-5+rpi1                         armhf        GNU Debugger
-ii  gdbserver                             7.7.1+dfsg-5+rpi1                         armhf        GNU Debugger (remote server)
-ii  gdebi-core                            0.9.5.5+nmu1                              all          simple tool to install deb files
-ii  geany                                 1.24.1+dfsg-1                             armhf        fast and lightweight IDE
-ii  geany-common                          1.24.1+dfsg-1                             all          fast and lightweight IDE -- common files
-ii  geoip-database                        20150317-1                                all          IP lookup command line tools that use the GeoIP library (country database)
-ii  gettext-base                          0.19.3-2                                  armhf        GNU Internationalization utilities for the base system
-ii  giblib1:armhf                         1.2.4-10                                  armhf        wrapper library for imlib2, and other stuff
-ii  gir1.2-atk-1.0                        2.14.0-1                                  armhf        ATK accessibility toolkit (GObject introspection)
-ii  gir1.2-freedesktop:armhf              1.42.0-2.2                                armhf        Introspection data for some FreeDesktop components
-ii  gir1.2-gdkpixbuf-2.0                  2.31.1-2+deb8u5                           armhf        GDK Pixbuf library - GObject-Introspection
+gconf-service                         3.2.6-3                                   armhf        GNOME configuration database system (D-Bus service)
+gconf2                                3.2.6-3                                   armhf        GNOME configuration database system (support tools)
+gconf2-common                         3.2.6-3                                   all          GNOME configuration database system (common files)
+gdb                                   7.7.1+dfsg-5+rpi1                         armhf        GNU Debugger
+gdbserver                             7.7.1+dfsg-5+rpi1                         armhf        GNU Debugger (remote server)
+gdebi-core                            0.9.5.5+nmu1                              all          simple tool to install deb files
+geany                                 1.24.1+dfsg-1                             armhf        fast and lightweight IDE
+geany-common                          1.24.1+dfsg-1                             all          fast and lightweight IDE -- common files
+geoip-database                        20150317-1                                all          IP lookup command line tools that use the GeoIP library (country database)
+gettext-base                          0.19.3-2                                  armhf        GNU Internationalization utilities for the base system
+giblib1:armhf                         1.2.4-10                                  armhf        wrapper library for imlib2, and other stuff
+gir1.2-atk-1.0                        2.14.0-1                                  armhf        ATK accessibility toolkit (GObject introspection)
+gir1.2-freedesktop:armhf              1.42.0-2.2                                armhf        Introspection data for some FreeDesktop components
+gir1.2-gdkpixbuf-2.0                  2.31.1-2+deb8u5                           armhf        GDK Pixbuf library - GObject-Introspection
 gir1.2-glib-2.0:armhf                 1.42.0-2.2                                armhf        Introspection data for GLib, GObject, Gio and GModule
-ii  gir1.2-gmenu-3.0                      3.13.3-6                                  armhf        GObject introspection data for the GNOME menu library
-ii  gir1.2-gtk-3.0:armhf                  3.14.5-1+deb8u1rpi1rpi1g                  armhf        GTK+ graphical user interface library -- gir bindings
-ii  gir1.2-pango-1.0:armhf                1.36.8-3+rpi1                             armhf        Layout and rendering of internationalized text - gir bindings
-ii  git                                   1:2.1.4-2.1+deb8u2                        armhf        fast, scalable, distributed revision control system
-ii  git-core                              1:2.1.4-2.1+deb8u2                        all          fast, scalable, distributed revision control system (obsolete)
-ii  git-man                               1:2.1.4-2.1+deb8u2                        all          fast, scalable, distributed revision control system (manual pages)
-ii  gksu                                  2.0.2-9                                   armhf        graphical front-end to su and sudo
-ii  glib-networking:armhf                 2.42.0-2                                  armhf        network-related giomodules for GLib
-ii  glib-networking-common                2.42.0-2                                  all          network-related giomodules for GLib - data files
-ii  glib-networking-services              2.42.0-2                                  armhf        network-related giomodules for GLib - D-Bus services
-ii  gnome-desktop3-data                   3.14.1-1                                  all          Common files for GNOME desktop apps
-ii  gnome-icon-theme                      3.12.0-1                                  all          GNOME Desktop icon theme
-ii  gnome-icon-theme-symbolic             3.12.0-1                                  all          GNOME desktop icon theme (symbolic icons)
-ii  gnome-menus                           3.13.3-6                                  armhf        GNOME implementation of the freedesktop menu specification
-ii  gnome-themes-standard:armhf           3.14.2.2-1rpi1rpi1g                       armhf        Standard GNOME themes
-ii  gnome-themes-standard-data            3.14.2.2-1rpi1rpi1g                       all          Data files for GNOME standard themes
+gir1.2-gmenu-3.0                      3.13.3-6                                  armhf        GObject introspection data for the GNOME menu library
+gir1.2-gtk-3.0:armhf                  3.14.5-1+deb8u1rpi1rpi1g                  armhf        GTK+ graphical user interface library -- gir bindings
+gir1.2-pango-1.0:armhf                1.36.8-3+rpi1                             armhf        Layout and rendering of internationalized text - gir bindings
+git                                   1:2.1.4-2.1+deb8u2                        armhf        fast, scalable, distributed revision control system
+git-core                              1:2.1.4-2.1+deb8u2                        all          fast, scalable, distributed revision control system (obsolete)
+git-man                               1:2.1.4-2.1+deb8u2                        all          fast, scalable, distributed revision control system (manual pages)
+gksu                                  2.0.2-9                                   armhf        graphical front-end to su and sudo
+glib-networking:armhf                 2.42.0-2                                  armhf        network-related giomodules for GLib
+glib-networking-common                2.42.0-2                                  all          network-related giomodules for GLib - data files
+glib-networking-services              2.42.0-2                                  armhf        network-related giomodules for GLib - D-Bus services
+gnome-desktop3-data                   3.14.1-1                                  all          Common files for GNOME desktop apps
+gnome-icon-theme                      3.12.0-1                                  all          GNOME Desktop icon theme
+gnome-icon-theme-symbolic             3.12.0-1                                  all          GNOME desktop icon theme (symbolic icons)
+gnome-menus                           3.13.3-6                                  armhf        GNOME implementation of the freedesktop menu specification
+gnome-themes-standard:armhf           3.14.2.2-1rpi1rpi1g                       armhf        Standard GNOME themes
+gnome-themes-standard-data            3.14.2.2-1rpi1rpi1g                       all          Data files for GNOME standard themes
 gnupg                                 1.4.18-7+deb8u3                           armhf        GNU privacy guard - a free PGP replacement
-ii  gnupg-agent                           2.0.26-6+deb8u1                           armhf        GNU privacy guard - password agent
-ii  gnupg2                                2.0.26-6+deb8u1                           armhf        GNU privacy guard - a free PGP replacement (new v2.x)
+gnupg-agent                           2.0.26-6+deb8u1                           armhf        GNU privacy guard - password agent
+gnupg2                                2.0.26-6+deb8u1                           armhf        GNU privacy guard - a free PGP replacement (new v2.x)
 gpgv                                  1.4.18-7+deb8u3                           armhf        GNU privacy guard - signature verification tool
-ii  gpicview                              0.2.4-2                                   armhf        lightweight image viewer
-ii  greenfoot                             2.4.2a                                    all          A simple but powerful Java IDE.
+gpicview                              0.2.4-2                                   armhf        lightweight image viewer
+greenfoot                             2.4.2a                                    all          A simple but powerful Java IDE.
 grep                                  2.20-4.1                                  armhf        GNU grep, egrep and fgrep
 groff-base                            1.22.2-8                                  armhf        GNU troff text-formatting system (base system components)
-ii  gsettings-desktop-schemas             3.14.1-1                                  all          GSettings desktop-wide schemas
-ii  gsfonts                               1:8.11+urwcyr1.0.7~pre44-4.2              all          Fonts for the Ghostscript interpreter(s)
-ii  gsfonts-x11                           0.22                                      all          Make Ghostscript fonts available to X11
-ii  gstreamer0.10-alsa:armhf              0.10.36-2                                 armhf        GStreamer plugin for ALSA
-ii  gstreamer0.10-plugins-base:armhf      0.10.36-2                                 armhf        GStreamer plugins from the "base" set
-ii  gstreamer1.0-alsa:armhf               1.4.4-2                                   armhf        GStreamer plugin for ALSA
-ii  gstreamer1.0-libav:armhf              1.4.4-2                                   armhf        libav plugin for GStreamer
-ii  gstreamer1.0-omx                      1.0.0.1-0+rpi18rpi1g                      armhf        GStreamer OpenMAX plugins
-ii  gstreamer1.0-plugins-bad:armhf        1.4.4-2.1+deb8u1                          armhf        GStreamer plugins from the "bad" set
-ii  gstreamer1.0-plugins-base:armhf       1.4.4-2                                   armhf        GStreamer plugins from the "base" set
-ii  gstreamer1.0-plugins-good:armhf       1.4.4-2+deb8u2                            armhf        GStreamer plugins from the "good" set
-ii  gstreamer1.0-x:armhf                  1.4.4-2                                   armhf        GStreamer plugins for X11 and Pango
-ii  gtk2-engines:armhf                    1:2.20.2-3                                armhf        theme engines for GTK+ 2.x
-ii  gtk2-engines-clearlookspix:armhf      1:2.20.4                                  armhf        clearlookspix theme for GTK+ 2.x
-ii  gtk2-engines-pixbuf:armhf             2.24.25-3+deb8u1                          armhf        pixbuf-based theme for GTK+ 2.x
-ii  gvfs:armhf                            1.22.2-1                                  armhf        userspace virtual filesystem - GIO module
-ii  gvfs-backends                         1.22.2-1                                  armhf        userspace virtual filesystem - backends
-ii  gvfs-common                           1.22.2-1                                  all          userspace virtual filesystem - common data files
-ii  gvfs-daemons                          1.22.2-1                                  armhf        userspace virtual filesystem - servers
-ii  gvfs-fuse                             1.22.2-1                                  armhf        userspace virtual filesystem - fuse server
-ii  gvfs-libs:armhf                       1.22.2-1                                  armhf        userspace virtual filesystem - private libraries
+gsettings-desktop-schemas             3.14.1-1                                  all          GSettings desktop-wide schemas
+gsfonts                               1:8.11+urwcyr1.0.7~pre44-4.2              all          Fonts for the Ghostscript interpreter(s)
+gsfonts-x11                           0.22                                      all          Make Ghostscript fonts available to X11
+gstreamer0.10-alsa:armhf              0.10.36-2                                 armhf        GStreamer plugin for ALSA
+gstreamer0.10-plugins-base:armhf      0.10.36-2                                 armhf        GStreamer plugins from the "base" set
+gstreamer1.0-alsa:armhf               1.4.4-2                                   armhf        GStreamer plugin for ALSA
+gstreamer1.0-libav:armhf              1.4.4-2                                   armhf        libav plugin for GStreamer
+gstreamer1.0-omx                      1.0.0.1-0+rpi18rpi1g                      armhf        GStreamer OpenMAX plugins
+gstreamer1.0-plugins-bad:armhf        1.4.4-2.1+deb8u1                          armhf        GStreamer plugins from the "bad" set
+gstreamer1.0-plugins-base:armhf       1.4.4-2                                   armhf        GStreamer plugins from the "base" set
+gstreamer1.0-plugins-good:armhf       1.4.4-2+deb8u2                            armhf        GStreamer plugins from the "good" set
+gstreamer1.0-x:armhf                  1.4.4-2                                   armhf        GStreamer plugins for X11 and Pango
+gtk2-engines:armhf                    1:2.20.2-3                                armhf        theme engines for GTK+ 2.x
+gtk2-engines-clearlookspix:armhf      1:2.20.4                                  armhf        clearlookspix theme for GTK+ 2.x
+gtk2-engines-pixbuf:armhf             2.24.25-3+deb8u1                          armhf        pixbuf-based theme for GTK+ 2.x
+gvfs:armhf                            1.22.2-1                                  armhf        userspace virtual filesystem - GIO module
+gvfs-backends                         1.22.2-1                                  armhf        userspace virtual filesystem - backends
+gvfs-common                           1.22.2-1                                  all          userspace virtual filesystem - common data files
+gvfs-daemons                          1.22.2-1                                  armhf        userspace virtual filesystem - servers
+gvfs-fuse                             1.22.2-1                                  armhf        userspace virtual filesystem - fuse server
+gvfs-libs:armhf                       1.22.2-1                                  armhf        userspace virtual filesystem - private libraries
 gzip                                  1.6-4                                     armhf        GNU compression utilities
 ii  hardlink                              0.3.0                                     armhf        Hardlinks multiple copies of the same file
-ii  hicolor-icon-theme                    0.13-1                                    all          default fallback theme for FreeDesktop.org icon themes
+hicolor-icon-theme                    0.13-1                                    all          default fallback theme for FreeDesktop.org icon themes
 hostname                              3.15                                      armhf        utility to set/show the host name or domain name
 ii  i2c-tools                             3.1.1+svn-2                               armhf        heterogeneous set of I2C tools for Linux
 ii  idle                                  2.7.9-1                                   all          IDE for Python using Tkinter (default version)

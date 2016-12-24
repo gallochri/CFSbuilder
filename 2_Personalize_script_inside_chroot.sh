@@ -81,19 +81,24 @@ exit
 echo "##########Installazione pacchetti base###########"
 echo "##########Pacchetti B-E###########"
 apt-get install -y adwaita-icon-theme alacarte alsa-base aspell aspell-en aspell-it
-
-
-
-
-apt-get install -y bash-completion bind9-host binutils blt bluej bluez-firmware bluez build-essential bzip2
-apt-get install -y ca-certificates chromium-browser claws-mail claws-mail-i18n coinor-libcoinmp1:armhf
-apt-get install -y cryptsetup-bin cups-bsd curl
-apt-get install -y dbus-x11 dc dconf-gsettings-backend debconf-utils dhcpcd5
-apt-get install -y ed eject esound-common
+apt-get install -y bash-completion bind9-host binutils blt bluej bluez-firmware bluez build-essential
+apt-get install -y chromium-browser claws-mail coinor-libcoinmp1 crda cups-bsd curl
+apt-get install -y dc debconf-utils debian-reference-common debian-reference-en debian-reference-it
+apt-get install -y desktop-base desktop-file-utils device-tree-compiler dhcpcd5 dillo dosfstools dphys-swapfile
+apt-get install -y ed esound-common
 echo "##########Pacchetti F-M###########"
-apt-get install -y fake-hwclock fbset fuse
-apt-get install -y fontconfig fonts-dejavu fonts-freefont-ttf fonts-opensymbol fonts-sil-gentium-basic fonts-roboto
-apt-get install -y gdb gettext-base git git-core gksu gvfs-backends gvfs-fuse gnupg-agent gnupg2 gsfonts-x11
+apt-get install -y fake-hwclock fbset
+apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
+apt-get install -y fontconfig-infinality fonts-dejavu fonts-droid fonts-freefont-ttf fonts-opensymbol
+apt-get install -y fonts-roboto fonts-sil-gentium-basic fuse
+apt-get install -y galculator gdb gettext-base gdebi-core geany gettext-base giblib1 git git-core gksu
+apt-get install -y gnome-desktop3-data gnome-icon-theme gnome-icon-theme-symbolic gnome-themes-standard gpicview
+apt-get install -y greenfoot gsfonts gsfonts-x11 gstreamer0.10-alsa gstreamer0.10-plugins-base gstreamer1.0-alsa
+apt-get install -y gstreamer1.0-libav gstreamer1.0-omx gstreamer1.0-plugins-bad gstreamer1.0-plugins-good gtk2-engines
+apt-get install -y gtk2-engines-clearlookspix gvfs-backends gvfs-fuse
+
+########################################################################################################################
+
 apt-get install -y hardlink
 apt-get install -y idle idle3
 apt-get install -y java-common javascript-common
@@ -117,9 +122,6 @@ apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev
 
 # source profile at login
 cp -r /root/config/etc/X11/Xsession.d/* /etc/X11/Xsession.d/
-
-echo "#########Installazione pacchetti non-free##########"
-apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
 
 echo "################Installazione mate#################"
 #apt-get install -y mate-core mate-desktop-environment mate-bluetooth
