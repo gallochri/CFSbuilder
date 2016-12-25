@@ -105,37 +105,41 @@ apt-get install -y leafpad libabw-0.1-1 libasound2-plugins libaudiofile1 libavah
 apt-get install -y libboost-atomic1.55.0 libboost-date-time1.55.0 libboost-filesystem1.55.0
 apt-get install -y libboost-program-options1.55.0 libboost-regex1.55.0 libboost-thread1.55.0 libc-ares2 libcdr-0.1-1
 apt-get install -y libcanberra-gtk3-0 libclucene-contribs1 libcmis-0.4-4 libcolamd2.8.0 libcwiid1 libdirectfb-1.2-9
-apt-get install -y libgnome-desktop-3-10 libglew1.10 libmozjs185-1.0 libportaudio2
-apt-get install -y libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc libreoffice libreoffice-gtk
-apt-get install -y lxappearance lxde
-apt-get install -y xpdf xserver-xorg
-########################################################################################################################
-exit
-
-apt-get install -y module-init-tools
-apt-get install -y nfs-common nuscratch
+apt-get install -y libfreetype6-dev libgnome-desktop-3-10 libgles1-mesa libglew1.10 libllvm3.7 libmozjs185-1.0
+apt-get install -y libportaudio2 libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc libreoffice libreoffice-gtk
+apt-get install -y luajit lxappearance lxde lxkeymap
+apt-get install -y minecraft-pi module-init-tools
+apt-get install -y ncdu netsurf-common netsurf-gtk nfs-common nodejs nodejs-legacy nodered nuscratch
+echo "##################################"
 echo "##########Pacchetti O-P###########"
+echo "##################################"
 apt-get install -y omxplayer oracle-java8-jdk
-apt-get install -y poppler-utils pypy-setuptools
-apt-get install -y python-picamera python-pifacecommon python-pifacedigitalio python-pygame
-apt-get install -y python-rpi.gpio python-serial python-pip
-apt-get install -y python3-numpy python3-picamera python3-pifacecommon python3-pifacedigital-scratch-handler
-apt-get install -y python3-pygame python3-rpi.gpio python3-serial python3-pip
-echo "##########Pacchetti R-X###########"
-apt-get install -y raspberrypi-artwork rpi-update raspi-gpio rc-gui
-#raspi-copies-and-fills
-apt-get install -y smartsim sonic-pi ssh strace timidity usbutils v4l-utils vim
-apt-get install -y wireless-tools wpagui
-apt-get install -y xserver-xorg-video-fbturbo x2x xinit xserver-xorg-video-fbdev x11-xserver-utils
+apt-get install -y packagekit penguinspuzzle pi-greeter pi-package pi-package-data pi-package-data pi-package-session
+apt-get install -y piclone pimixer pipanel pishutdown pix-icons pix-plym-splash pixel-wallpaper pkg-config
+apt-get install -y plymouth-themes point-rpi pprompt pypy python-blinker python-colorama python-distlib python-flask
+apt-get install -y python-gpiozero python-html5lib python-ndg-httpsclient python-picamera python-picraft
+apt-get install -y python-pifacecommon python-pifacedigitalio python-pigpio python-pygame python-pil python-pip
+apt-get install -y python-rtimulib python-sense-emu python-sense-emu-doc python-sense-hat python-smbus python-twython
+apt-get install -y python3-codebug-i2c-tether python3-codebug-tether python3-colorama python3-dev python3-distlib
+apt-get install -y python3-flask python3-gpiozero python3-html5lib python3-pgzero python3-picamera
+apt-get install -y python3-picraft python3-pifacecommon python3-pifacedigital-scratch-handler python3-pigpio
+apt-get install -y python3-pip python3-requests python3-rtimulib python3-sense-hat python3-smbus python3-twython
+echo "##################################"
+echo "##########Pacchetti R-Z###########"
+echo "##################################"
+apt-get install -y raspberrypi-artwork raspberrypi-net-mods raspberrypi-sys-mods raspberrypi-ui-mods
+apt-get install -y raspi-copies-and-fills raspi-gpio rc-gui realvnc-vnc-server realvnc-vnc-viewer ril.9.1
+apt-get install -y rpi-chromium-mods rpi-update ruby ruby1.9.1-dev ruby1.9.1-full ruby1.9.3
+apt-get install -y sense-hat smartsim sonic-pi ssh strace supercollider
+apt-get install -y timidity tree
+apt-get install -y usb-modeswitch usb-modeswitch-data
+apt-get install -y v4l-utils vdpau-va-driver
+apt-get install -y wiringpi wolfram-engine
+apt-get install -y x2x xcompmgr xinit xpdf xserver-xorg
+apt-get install -y zlib1g-dev
 
 # source profile at login
 cp -r /root/config/etc/X11/Xsession.d/* /etc/X11/Xsession.d/
-
-echo "################Installazione mate#################"
-#apt-get install -y mate-core mate-desktop-environment mate-bluetooth
-
-echo "###########Installazione Desktop Manager###########"
-apt-get install -y lightdm
 
 echo "###################################################"
 echo "###################Programmi CFS###################"
