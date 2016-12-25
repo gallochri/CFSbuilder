@@ -76,17 +76,19 @@ cp -r /root/config/etc/udev/* /etc/udev/
 #Moduli da caricare al boot
 cp -r /root/config/etc/modules /etc/modules
 
-exit
-
-echo "##########Installazione pacchetti base###########"
+echo "##################################"
 echo "##########Pacchetti B-E###########"
+echo "##################################"
+apt-get autoremove
 apt-get install -y avahi-daemon adwaita-icon-theme alacarte alsa-base aspell aspell-en aspell-it
 apt-get install -y bash-completion bind9-host binutils blt bluej bluez-firmware bluez build-essential
 apt-get install -y chromium-browser cifs-utils claws-mail coinor-libcoinmp1 crda cups-bsd curl
 apt-get install -y dc debconf-utils debian-reference-common debian-reference-en debian-reference-it
 apt-get install -y desktop-base desktop-file-utils device-tree-compiler dhcpcd5 dillo dosfstools dphys-swapfile
 apt-get install -y ed esound-common
+echo "##################################"
 echo "##########Pacchetti F-M###########"
+echo "##################################"
 apt-get install -y fake-hwclock fbset
 apt-get install -y firmware-atheros firmware-brcm80211 firmware-libertas firmware-ralink firmware-realtek
 apt-get install -y fontconfig-infinality fonts-dejavu fonts-droid fonts-freefont-ttf fonts-opensymbol
@@ -100,11 +102,16 @@ apt-get install -y hardlink
 apt-get install -y i2c-tools idle idle3
 apt-get install -y javascript-common
 apt-get install -y leafpad libabw-0.1-1 libasound2-plugins libaudiofile1 libavahi-client3 libavahi-gobject0
-
+apt-get install -y libboost-atomic1.55.0 libboost-date-time1.55.0 libboost-filesystem1.55.0
+apt-get install -y libboost-program-options1.55.0 libboost-regex1.55.0 libboost-thread1.55.0 libc-ares2 libcdr-0.1-1
+apt-get install -y libcanberra-gtk3-0 libclucene-contribs1 libcmis-0.4-4 libcolamd2.8.0 libcwiid1 libdirectfb-1.2-9
+apt-get install -y libgnome-desktop-3-10 libglew1.10 libmozjs185-1.0 libportaudio2
+apt-get install -y libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc libreoffice libreoffice-gtk
+apt-get install -y lxappearance lxde
+apt-get install -y xpdf xserver-xorg
 ########################################################################################################################
+exit
 
-apt-get install -y libglew1.10 libgif4 libimlib2 libmozjs185-1.0 libportaudio2
-apt-get install -y libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc lsb-release
 apt-get install -y module-init-tools
 apt-get install -y nfs-common nuscratch
 echo "##########Pacchetti O-P###########"

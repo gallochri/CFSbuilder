@@ -1,7 +1,7 @@
-Desired=Unknown/Install/Remove/Purge/Hold
-| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
-|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
-||/ Name                                  Version                                   Architecture Description
+Voluto=U (non noto)/I (installato)/R (rimosso)/P (rimosso totale)/H (in attesa)
+| Stato=Non/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(nessuno)/R (reinstallazione richiesta) (Stato,Err: maiuscolo=grave)
+||/ Nome                                  Versione                                  Architettura Descrizione
 +++-=====================================-=========================================-============-==================================================================================================
 ii  acl                                   2.2.52-2                                  armhf        Access control list utilities
 ii  adduser                               3.113+nmu3                                all          add and remove users and groups
